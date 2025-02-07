@@ -1,4 +1,4 @@
-.ddev
+
 # Ignore dependencies and compiled files
 /vendor/
 /node_modules/
@@ -23,3 +23,6 @@ sites/*/settings*.php
 /web/themes/contrib/
 /web/profiles/contrib/
 /vendor/
+# .ddev/.import-db
+.ddev/logs/
+.ddev/global_config.yaml
