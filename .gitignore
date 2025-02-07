@@ -1,0 +1,25 @@
+.ddev
+# Ignore dependencies and compiled files
+/vendor/
+/node_modules/
+# Ignore Drupal private files
+/sites/default/files/
+# Ignore settings files (important for security)
+sites/*/settings*.php
+# Ignore backup and cache
+*.log
+*.sql
+*.sqlite
+/backup_migrate/
+/tmp/
+/config_*/sync/
+/web/sites/default/files/php/twig/*
+# Ignore IDE and system files
+*.DS_Store
+*.vscode/
+*.idea/
+/web/core/
+/web/modules/contrib/
+/web/themes/contrib/
+/web/profiles/contrib/
+/vendor/
