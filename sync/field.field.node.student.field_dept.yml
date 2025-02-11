@@ -1,0 +1,29 @@
+uuid: c9298c8d-41fc-4a1d-bfd3-1a56473e9f62
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dept
+    - node.type.student
+    - taxonomy.vocabulary.department
+id: node.student.field_dept
+field_name: field_dept
+entity_type: node
+bundle: student
+label: Dept
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      department: department
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

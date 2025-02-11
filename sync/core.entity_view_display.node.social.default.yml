@@ -1,0 +1,43 @@
+uuid: f0e5f296-a2ee-4063-9f1e-e3c5e0907703
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.social.field_icon
+    - field.field.node.social.field_link
+    - node.type.social
+  module:
+    - link
+    - user
+id: node.social.default
+targetEntityType: node
+bundle: social
+mode: default
+content:
+  field_icon:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

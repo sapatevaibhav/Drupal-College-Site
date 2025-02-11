@@ -1,0 +1,32 @@
+uuid: 63f935c3-dbce-4f23-bcd2-3a9491dae54b
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.brochures
+    - field.field.block_content.brochures.body
+    - field.field.block_content.brochures.field_college_brochure
+  module:
+    - file
+    - text
+id: block_content.brochures.default
+targetEntityType: block_content
+bundle: brochures
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_college_brochure:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

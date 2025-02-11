@@ -1,0 +1,22 @@
+uuid: d653b4f6-fef6-456b-842f-c0586ccf22d1
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: department_url
+label: 'DEPARTMENT URL'
+type: 'canonical_entities:node'
+pattern: '/department/[node:title]'
+selection_criteria:
+  6a612c84-a14e-4b4a-b97d-f8f5f441a3fa:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 6a612c84-a14e-4b4a-b97d-f8f5f441a3fa
+    context_mapping:
+      node: node
+    bundles:
+      department: department
+selection_logic: and
+weight: -5
+relationships: {  }

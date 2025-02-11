@@ -1,0 +1,23 @@
+uuid: 78d9f9f8-cf3f-4798-9740-1ed59a1c9622
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_social_media_links
+    - node.type.teacher
+  module:
+    - link
+id: node.teacher.field_social_media_links
+field_name: field_social_media_links
+entity_type: node
+bundle: teacher
+label: 'Social Media Links'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

@@ -1,0 +1,67 @@
+uuid: c57e745c-bc36-41d4-8bb6-eefcb996fb36
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.student.field_course
+    - field.field.node.student.field_dept
+    - field.field.node.student.field_personal_statement
+    - field.field.node.student.field_profile_picture
+    - field.field.node.student.field_year_of_study
+    - node.type.student
+  module:
+    - image
+    - user
+id: node.student.default
+targetEntityType: node
+bundle: student
+mode: default
+content:
+  field_course:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_dept:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_personal_statement:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_profile_picture:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_year_of_study:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

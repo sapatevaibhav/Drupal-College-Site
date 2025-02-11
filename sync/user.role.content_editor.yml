@@ -1,0 +1,113 @@
+uuid: 7e08f48d-0e1e-49c4-bc5b-63b99ae54ae0
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.abb
+    - node.type.article
+    - node.type.demo
+    - node.type.department
+    - node.type.page
+    - node.type.student
+    - node.type.teacher
+    - taxonomy.vocabulary.tags
+  module:
+    - admin_toolbar_search
+    - comment
+    - contextual
+    - file
+    - media
+    - node
+    - path
+    - system
+    - taxonomy
+    - toolbar
+_core:
+  default_config_hash: e_wG1u7SrGaJbY2-Szgbgl-c8T3kdirU3uTNq2c_QJQ
+id: content_editor
+label: 'Content editor'
+weight: 2
+is_admin: false
+permissions:
+  - 'access administration pages'
+  - 'access content overview'
+  - 'access contextual links'
+  - 'access files overview'
+  - 'access media overview'
+  - 'access toolbar'
+  - 'administer nodes'
+  - 'administer url aliases'
+  - 'bypass node access'
+  - 'create abb content'
+  - 'create article content'
+  - 'create demo content'
+  - 'create department content'
+  - 'create media'
+  - 'create page content'
+  - 'create student content'
+  - 'create teacher content'
+  - 'create terms in tags'
+  - 'create url aliases'
+  - 'delete abb revisions'
+  - 'delete all revisions'
+  - 'delete any abb content'
+  - 'delete any article content'
+  - 'delete any demo content'
+  - 'delete any department content'
+  - 'delete any media'
+  - 'delete any page content'
+  - 'delete any student content'
+  - 'delete any teacher content'
+  - 'delete article revisions'
+  - 'delete demo revisions'
+  - 'delete department revisions'
+  - 'delete media'
+  - 'delete own abb content'
+  - 'delete own article content'
+  - 'delete own demo content'
+  - 'delete own department content'
+  - 'delete own files'
+  - 'delete own page content'
+  - 'delete own student content'
+  - 'delete own teacher content'
+  - 'delete page revisions'
+  - 'delete student revisions'
+  - 'delete teacher revisions'
+  - 'edit any abb content'
+  - 'edit any article content'
+  - 'edit any demo content'
+  - 'edit any department content'
+  - 'edit any page content'
+  - 'edit any student content'
+  - 'edit any teacher content'
+  - 'edit own abb content'
+  - 'edit own article content'
+  - 'edit own comments'
+  - 'edit own demo content'
+  - 'edit own department content'
+  - 'edit own page content'
+  - 'edit own student content'
+  - 'edit own teacher content'
+  - 'edit terms in tags'
+  - 'revert abb revisions'
+  - 'revert all revisions'
+  - 'revert article revisions'
+  - 'revert demo revisions'
+  - 'revert department revisions'
+  - 'revert page revisions'
+  - 'revert student revisions'
+  - 'revert teacher revisions'
+  - 'update any media'
+  - 'update media'
+  - 'use admin toolbar search'
+  - 'view abb revisions'
+  - 'view all media revisions'
+  - 'view all revisions'
+  - 'view article revisions'
+  - 'view demo revisions'
+  - 'view department revisions'
+  - 'view own unpublished content'
+  - 'view page revisions'
+  - 'view student revisions'
+  - 'view teacher revisions'
+  - 'view the administration theme'

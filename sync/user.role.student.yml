@@ -1,0 +1,44 @@
+uuid: f78fa595-d0a3-4629-a460-e2c6355e21f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.article
+    - node.type.page
+    - node.type.student
+  module:
+    - admin_toolbar_search
+    - comment
+    - contact
+    - contextual
+    - file
+    - media
+    - node
+    - toolbar
+id: student
+label: Student
+weight: 5
+is_admin: false
+permissions:
+  - 'access comments'
+  - 'access content overview'
+  - 'access contextual links'
+  - 'access files overview'
+  - 'access media overview'
+  - 'access site-wide contact form'
+  - 'access toolbar'
+  - 'change own username'
+  - 'create media'
+  - 'create page content'
+  - 'create student content'
+  - 'delete media'
+  - 'delete own article content'
+  - 'delete own student content'
+  - 'edit own article content'
+  - 'edit own comments'
+  - 'edit own student content'
+  - 'post comments'
+  - 'update media'
+  - 'use admin toolbar search'
+  - 'view all media revisions'
+  - 'view own unpublished content'

@@ -1,0 +1,15 @@
+_core:
+  default_config_hash: ijfbzDTN4CbE7Sr-6ubWzy_t1vH4OtU1doNCLssVz-4
+langcode: en
+uuid: 6e3e1c54-b25e-47d3-b4bb-c2223ad556f6
+name: 'College Sit3'
+mail: sapatevaibhav@duck.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node/8
+admin_compact_mode: false
+weight_select_max: 100
+default_langcode: en
+mail_notification: ''

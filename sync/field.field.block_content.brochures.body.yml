@@ -1,0 +1,24 @@
+uuid: acfc8eed-3836-4905-9c93-578554f86e5a
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.brochures
+    - field.storage.block_content.body
+  module:
+    - text
+id: block_content.brochures.body
+field_name: body
+entity_type: block_content
+bundle: brochures
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

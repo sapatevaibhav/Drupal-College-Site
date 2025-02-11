@@ -1,0 +1,11 @@
+uuid: bd1b3b20-a51c-42dc-b875-845917abc3fd
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.socio
+label: Socio
+description: ''
+targetEntityType: node
+cache: true

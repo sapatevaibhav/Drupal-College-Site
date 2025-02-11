@@ -1,0 +1,24 @@
+uuid: 664032d7-a3b8-42a5-95e5-64b9005999f8
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.students_list
+  module:
+    - views
+  theme:
+    - olivero
+id: olivero_views_block__students_list_block_1
+theme: olivero
+region: sidebar
+weight: -6
+provider: null
+plugin: 'views_block:students_list-block_1'
+settings:
+  id: 'views_block:students_list-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility: {  }

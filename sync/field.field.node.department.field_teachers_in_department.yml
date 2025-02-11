@@ -1,0 +1,29 @@
+uuid: 3b68e6bc-88af-4bda-9898-ae8c71e24900
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_teachers_in_department
+    - node.type.department
+    - node.type.teacher
+id: node.department.field_teachers_in_department
+field_name: field_teachers_in_department
+entity_type: node
+bundle: department
+label: 'Teachers in Department'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      teacher: teacher
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

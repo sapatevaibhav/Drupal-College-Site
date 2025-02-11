@@ -1,0 +1,27 @@
+uuid: fe65aa35-4d2f-458d-94ef-28684b42ac60
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.brochures
+    - field.storage.block_content.field_college_brochure
+  module:
+    - file
+id: block_content.brochures.field_college_brochure
+field_name: field_college_brochure
+entity_type: block_content
+bundle: brochures
+label: 'College Brochure'
+description: 'Select or upload the appropriate pdf file.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: brochures
+  file_extensions: pdf
+  max_filesize: '5 MB'
+  description_field: false
+field_type: file

@@ -1,0 +1,19 @@
+uuid: fb6e855e-f6dc-4a71-981b-d815404d5346
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_teachers_in_department
+field_name: field_teachers_in_department
+entity_type: node
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

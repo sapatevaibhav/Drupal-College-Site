@@ -1,0 +1,18 @@
+uuid: 4b776dc7-b865-4527-8f92-5adc6a85ad72
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Student
+type: student
+description: 'Content type for Student'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

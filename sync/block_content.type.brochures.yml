@@ -1,0 +1,8 @@
+uuid: 3040da4a-0d3d-4bdb-804f-503dadab6b71
+langcode: en
+status: true
+dependencies: {  }
+id: brochures
+label: Brochures
+revision: false
+description: 'The template for brochures related to the college.'

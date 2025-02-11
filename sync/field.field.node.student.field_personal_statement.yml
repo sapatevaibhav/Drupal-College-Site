@@ -1,0 +1,19 @@
+uuid: 120aa546-c8bc-4bf1-a3e0-8dd9a8d79c25
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_personal_statement
+    - node.type.student
+id: node.student.field_personal_statement
+field_name: field_personal_statement
+entity_type: node
+bundle: student
+label: 'Personal Statement'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

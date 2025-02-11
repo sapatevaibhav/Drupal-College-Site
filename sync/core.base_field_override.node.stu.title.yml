@@ -1,0 +1,18 @@
+uuid: c27f7466-440b-40fa-85cc-b8fc37516d9d
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.stu
+id: node.stu.title
+field_name: title
+entity_type: node
+bundle: stu
+label: name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

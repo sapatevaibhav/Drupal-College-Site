@@ -1,0 +1,31 @@
+uuid: fc46a5c8-e9aa-4f5f-981e-1c8dc517f2a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.socio
+    - field.field.node.social.field_icon
+    - field.field.node.social.field_link
+    - node.type.social
+  module:
+    - media
+    - user
+id: node.social.socio
+targetEntityType: node
+bundle: social
+mode: socio
+content:
+  field_icon:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_link: true
+  links: true

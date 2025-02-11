@@ -1,0 +1,22 @@
+uuid: 62d60a67-bfb7-4077-a392-9be548dd9639
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: teacher_url
+label: 'TEACHER URL'
+type: 'canonical_entities:node'
+pattern: '/teacher/[node:title]'
+selection_criteria:
+  9838e1ba-aa23-41c0-bbc8-b1792c31dca4:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 9838e1ba-aa23-41c0-bbc8-b1792c31dca4
+    context_mapping:
+      node: node
+    bundles:
+      teacher: teacher
+selection_logic: and
+weight: -5
+relationships: {  }

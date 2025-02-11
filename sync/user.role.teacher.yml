@@ -1,0 +1,40 @@
+uuid: 1d8935e7-2604-414b-8d3a-749f407764a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.article
+    - node.type.page
+    - node.type.teacher
+  module:
+    - admin_toolbar_search
+    - comment
+    - contextual
+    - file
+    - media
+    - node
+    - toolbar
+id: teacher
+label: Teacher
+weight: 4
+is_admin: false
+permissions:
+  - 'access content overview'
+  - 'access contextual links'
+  - 'access files overview'
+  - 'access media overview'
+  - 'access toolbar'
+  - 'change own username'
+  - 'create media'
+  - 'create page content'
+  - 'create teacher content'
+  - 'delete media'
+  - 'delete own article content'
+  - 'delete own teacher content'
+  - 'edit own article content'
+  - 'edit own comments'
+  - 'edit own teacher content'
+  - 'update media'
+  - 'use admin toolbar search'
+  - 'view all media revisions'
+  - 'view own unpublished content'

@@ -1,0 +1,19 @@
+uuid: ff932bf7-9aeb-41d4-8bc1-182977bc1782
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_office_hours
+    - node.type.teacher
+id: node.teacher.field_office_hours
+field_name: field_office_hours
+entity_type: node
+bundle: teacher
+label: 'Office Hours'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

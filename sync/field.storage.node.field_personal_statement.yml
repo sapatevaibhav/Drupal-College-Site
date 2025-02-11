@@ -1,0 +1,19 @@
+uuid: 491630b7-afc8-45a7-b2ca-9c7aa6f8cd5f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_personal_statement
+field_name: field_personal_statement
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
