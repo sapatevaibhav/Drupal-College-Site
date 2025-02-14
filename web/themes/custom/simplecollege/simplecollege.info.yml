@@ -3,4 +3,4 @@ type: theme
 description: "A test theme for my college website"
 core_version_requirement: ^9 || ^10 || ^11
 core: ^10
-base theme: olivero
+base theme: stark
