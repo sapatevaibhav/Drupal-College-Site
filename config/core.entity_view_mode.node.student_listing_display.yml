@@ -1,0 +1,11 @@
+uuid: fbca4524-22f7-402d-8aad-89efb896022c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.student_listing_display
+label: 'Student Listing Display'
+description: ''
+targetEntityType: node
+cache: true

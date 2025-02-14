@@ -1,0 +1,30 @@
+uuid: 2d8a2dc0-0a0f-4cca-ad57-07211dcbb408
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:brochures:9b1b9349-d3ba-42af-8941-ea68418f826f'
+  module:
+    - block_content
+    - system
+  theme:
+    - simplecollege
+id: simplecollege_collegeinfo
+theme: simplecollege
+region: highlighted
+weight: -8
+provider: null
+plugin: 'block_content:9b1b9349-d3ba-42af-8941-ea68418f826f'
+settings:
+  id: 'block_content:9b1b9349-d3ba-42af-8941-ea68418f826f'
+  label: 'College info'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /about

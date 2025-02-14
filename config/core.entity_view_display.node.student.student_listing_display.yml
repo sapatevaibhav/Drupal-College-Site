@@ -1,0 +1,200 @@
+uuid: d07d8ed0-e94d-4e14-b0ef-18eb42bb9694
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.student_listing_display
+    - field.field.node.student.field_course
+    - field.field.node.student.field_dept
+    - field.field.node.student.field_personal_statement
+    - field.field.node.student.field_profile_picture
+    - field.field.node.student.field_year_of_study
+    - node.type.student
+  module:
+    - image
+    - layout_builder
+    - layout_discovery
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_twocol_section
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+          column_widths: 50-50
+        components:
+          01a9f646-b7ce-476a-9b85-b0b28a5f2053:
+            uuid: 01a9f646-b7ce-476a-9b85-b0b28a5f2053
+            region: first
+            configuration:
+              id: 'field_block:node:student:field_profile_picture'
+              label: 'Profile Picture'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: image
+                label: hidden
+                settings:
+                  image_link: content
+                  image_style: 250x250
+                  image_loading:
+                    attribute: lazy
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          79860bb4-f5b2-4910-aac7-221b5b914435:
+            uuid: 79860bb4-f5b2-4910-aac7-221b5b914435
+            region: second
+            configuration:
+              id: 'field_block:node:student:field_dept'
+              label: Dept
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          6af20a6b-53b2-4491-acf6-dfbf2b1f6d6b:
+            uuid: 6af20a6b-53b2-4491-acf6-dfbf2b1f6d6b
+            region: second
+            configuration:
+              id: 'field_block:node:student:field_course'
+              label: Course
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: above
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          a3c520a8-026a-40cc-a381-99196e22ae73:
+            uuid: a3c520a8-026a-40cc-a381-99196e22ae73
+            region: second
+            configuration:
+              id: 'field_block:node:student:created'
+              label: 'Joined on'
+              label_display: visible
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: timestamp
+                label: hidden
+                settings:
+                  date_format: medium
+                  custom_date_format: ''
+                  timezone: ''
+                  tooltip:
+                    date_format: long
+                    custom_date_format: ''
+                  time_diff:
+                    enabled: false
+                    future_format: '@interval hence'
+                    past_format: '@interval ago'
+                    granularity: 2
+                    refresh: 60
+                    description: ''
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+        components:
+          9fa5989b-33a6-4ee4-8d64-cf871c464267:
+            uuid: 9fa5989b-33a6-4ee4-8d64-cf871c464267
+            region: content
+            configuration:
+              id: 'field_block:node:student:field_dept'
+              label: Department
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
+id: node.student.student_listing_display
+targetEntityType: node
+bundle: student
+mode: student_listing_display
+content:
+  field_course:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_dept:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_personal_statement:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_profile_picture:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_year_of_study:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

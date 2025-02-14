@@ -1,0 +1,16 @@
+uuid: dc25a032-120f-43f1-a0d2-9bf2df8c97ca
+langcode: en
+status: true
+dependencies: {  }
+id: college_video
+label: 'College Video'
+description: 'Video Related to college.'
+source: 'oembed:video'
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_oembed_video_1
+  thumbnails_directory: 'public://thumbs'
+  providers:
+    - YouTube
+field_map: {  }

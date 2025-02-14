@@ -1,0 +1,21 @@
+uuid: 3dc002e1-e79f-45a9-8c84-53db879c7e23
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.field_video_label
+field_name: field_video_label
+entity_type: media
+type: string
+settings:
+  max_length: 25
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

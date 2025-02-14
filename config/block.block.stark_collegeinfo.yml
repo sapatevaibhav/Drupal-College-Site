@@ -1,0 +1,30 @@
+uuid: af833fcd-7f4b-4ee1-888c-968b89c4e3c7
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:brochures:9b1b9349-d3ba-42af-8941-ea68418f826f'
+  module:
+    - block_content
+    - system
+  theme:
+    - stark
+id: stark_collegeinfo
+theme: stark
+region: highlighted
+weight: -8
+provider: null
+plugin: 'block_content:9b1b9349-d3ba-42af-8941-ea68418f826f'
+settings:
+  id: 'block_content:9b1b9349-d3ba-42af-8941-ea68418f826f'
+  label: 'College info'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /about

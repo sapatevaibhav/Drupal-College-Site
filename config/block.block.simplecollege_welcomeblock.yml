@@ -1,0 +1,25 @@
+uuid: 9b4e5847-85e6-49dc-8de5-86708bb0587b
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:cdc9fc3d-d904-4688-b32c-4b5acc4fcf33'
+  module:
+    - block_content
+  theme:
+    - simplecollege
+id: simplecollege_welcomeblock
+theme: simplecollege
+region: sidebar_first
+weight: -7
+provider: null
+plugin: 'block_content:cdc9fc3d-d904-4688-b32c-4b5acc4fcf33'
+settings:
+  id: 'block_content:cdc9fc3d-d904-4688-b32c-4b5acc4fcf33'
+  label: Welcome
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

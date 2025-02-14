@@ -1,0 +1,29 @@
+uuid: 35cfa579-722e-40c3-8b09-4f99494aa469
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - system
+  theme:
+    - simplecollege
+third_party_settings:
+  block_class:
+    classes: my-custom-block
+_core:
+  default_config_hash: n_nlgjggHVfQt2H__zvLOKB2YtjPDbQ5tHijF9LE1aM
+id: simplecollege_site_branding
+theme: simplecollege
+region: header
+weight: 0
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: false
+visibility: {  }

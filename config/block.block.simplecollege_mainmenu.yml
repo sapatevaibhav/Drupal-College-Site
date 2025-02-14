@@ -1,0 +1,25 @@
+uuid: de925d10-6a05-4efe-bf09-47adfe2fd6e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main-menu
+  module:
+    - system
+  theme:
+    - simplecollege
+id: simplecollege_mainmenu
+theme: simplecollege
+region: content
+weight: 0
+provider: null
+plugin: 'system_menu_block:main-menu'
+settings:
+  id: 'system_menu_block:main-menu'
+  label: 'Main menu'
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

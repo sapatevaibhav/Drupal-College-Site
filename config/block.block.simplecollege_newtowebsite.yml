@@ -1,0 +1,33 @@
+uuid: 6f0e5b5c-1ae6-4f19-bf14-6816d0e25ccd
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:ff3fc073-aaa0-4727-a56c-2ab185aa863b'
+  module:
+    - block_content
+    - user
+  theme:
+    - simplecollege
+id: simplecollege_newtowebsite
+theme: simplecollege
+region: sidebar_first
+weight: -8
+provider: null
+plugin: 'block_content:ff3fc073-aaa0-4727-a56c-2ab185aa863b'
+settings:
+  id: 'block_content:ff3fc073-aaa0-4727-a56c-2ab185aa863b'
+  label: 'New to website'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      anonymous: anonymous

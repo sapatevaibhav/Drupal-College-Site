@@ -1,0 +1,39 @@
+uuid: fcb65281-b7f4-4a58-a605-57b9a9eb7253
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.college_video.field_media_oembed_video_1
+    - field.field.media.college_video.field_video_label
+    - media.type.college_video
+  module:
+    - media
+id: media.college_video.default
+targetEntityType: media
+bundle: college_video
+mode: default
+content:
+  field_media_oembed_video_1:
+    type: oembed
+    label: visually_hidden
+    settings:
+      max_width: 0
+      max_height: 0
+      loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_video_label:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  created: true
+  name: true
+  thumbnail: true
+  uid: true

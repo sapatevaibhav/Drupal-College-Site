@@ -1,0 +1,25 @@
+uuid: b829e2dd-d75e-450e-9639-004d46fae52e
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:cdc9fc3d-d904-4688-b32c-4b5acc4fcf33'
+  module:
+    - block_content
+  theme:
+    - stark
+id: stark_welcomeblock
+theme: stark
+region: sidebar_first
+weight: -7
+provider: null
+plugin: 'block_content:cdc9fc3d-d904-4688-b32c-4b5acc4fcf33'
+settings:
+  id: 'block_content:cdc9fc3d-d904-4688-b32c-4b5acc4fcf33'
+  label: Welcome
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

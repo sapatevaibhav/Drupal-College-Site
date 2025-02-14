@@ -1,0 +1,22 @@
+uuid: c273aed3-67a5-46d5-adf5-81fa4012eb36
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - simplecollege
+_core:
+  default_config_hash: VfPFqqxfkomud5CO8DUijw85QIl9GIxh_nIxLOYESxg
+id: simplecollege_help
+theme: simplecollege
+region: sidebar_first
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.student_listing_display
     - field.storage.node.field_course
     - field.storage.node.field_dept
     - field.storage.node.field_profile_picture
@@ -747,6 +748,23 @@ display:
     display_plugin: page
     position: 1
     display_options:
+      style:
+        type: html_list
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          type: ol
+          wrapper_class: item-list
+          class: ''
+      row:
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: student_listing_display
+      defaults:
+        style: false
+        row: false
       display_extenders: {  }
       path: stu
     cache_metadata:

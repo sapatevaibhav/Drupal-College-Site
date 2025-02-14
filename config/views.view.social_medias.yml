@@ -158,9 +158,9 @@ display:
         type: grid
         options:
           grouping: {  }
-          columns: 1
+          columns: 5
           automatic_width: false
-          alignment: vertical
+          alignment: horizontal
           row_class_custom: ''
           row_class_default: false
           col_class_custom: ''
