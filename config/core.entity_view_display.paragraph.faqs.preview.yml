@@ -1,0 +1,37 @@
+uuid: 557d5de8-7792-47e4-974a-6b864097b1c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.faqs.field_answer
+    - field.field.paragraph.faqs.field_question
+    - paragraphs.paragraphs_type.faqs
+  module:
+    - layout_builder
+    - text
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: paragraph.faqs.preview
+targetEntityType: paragraph
+bundle: faqs
+mode: preview
+content:
+  field_answer:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_question:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }
