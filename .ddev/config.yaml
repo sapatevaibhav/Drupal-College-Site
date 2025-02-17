@@ -5,8 +5,8 @@ php_version: "8.3"
 webserver_type: nginx-fpm
 xdebug_enabled: false
 additional_hostnames: []
-additional_fqdns:
-  - college.sapatevaibhav.me
+# additional_fqdns:
+#   - college.sapatevaibhav.me
 database:
     type: mariadb
     version: "10.11"
@@ -14,8 +14,8 @@ use_dns_when_possible: true
 composer_version: "2"
 web_environment: []
 corepack_enable: true
-router_http_port: 8080
-router_https_port: 8443
+router_http_port: 80
+router_https_port: 443
 # Key features of DDEV's config.yaml:
 
 # name: <projectname> #Name of the project, automatically provides
