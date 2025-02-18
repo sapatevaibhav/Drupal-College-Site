@@ -1,10 +1,16 @@
 <div class="layout-container">
 
   <header role="banner">
+    {# Display Custom Logo if Enabled #}
+    {# {% if custom_logo_enabled %}
+      <div class="site-logo">
+        <img src="{{ directory }}/images/logo.png" alt="College Logo">
+      </div>
+    {% endif %} #}
+
     {{ page.header }}
   </header>
 
-  {# {{ page.page_top }} #}
   {{ page.menu }}
   {{ page.banner }}
 
@@ -28,11 +34,15 @@
     {% endif %}
   </main>
 
-  {# {{ page.page_bottom }} #}
-
   {% if page.footer %}
     <footer role="contentinfo">
       {{ page.footer }}
+
+      {# Display Custom Footer Text if Set #}
+      {# {% if footer_text %}
+        <p class="custom-footer-text">{{ footer_text }}</p>
+      {% endif %} #}
+
     </footer>
   {% endif %}
 
