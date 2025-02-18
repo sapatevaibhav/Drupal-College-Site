@@ -4,14 +4,14 @@ description: "A test theme for my college website"
 core_version_requirement: ^9 || ^10 || ^11
 core: ^10
 base theme: stark
+screenshot: screenshot.png
 regions:
   header: Header
-  simplemenu: Navigation
-  hero: Hero
-  highlighted: Highlighted
-  breadcrumb: Breadcrumb
-  contentabove: Content Above
+  menu: Primary Menu
+  banner: Banner
   content: Content
-  sidebar: Sidebar
-  footertop: Footer Top
-  footerbottom: Footer Bottom
+  right_sidebar: Right Sidebar
+  left_sidebar: Left Sidebar
+  footer: Footer
+  page_top: Page Top
+  page_bottom: Page Bottom
