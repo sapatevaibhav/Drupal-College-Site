@@ -1,0 +1,39 @@
+<div class="layout-container">
+
+  <header role="banner">
+    {{ page.header }}
+  </header>
+
+  {# {{ page.page_top }} #}
+  {{ page.menu }}
+  {{ page.banner }}
+
+  <main role="main">
+    <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+
+    <div class="layout-content">
+      {{ page.content }}
+    </div>{# /.layout-content #}
+
+    {% if page.right_sidebar %}
+      <aside class="layout-sidebar-first" role="complementary">
+        {{ page.right_sidebar }}
+      </aside>
+    {% endif %}
+
+    {% if page.left_sidebar %}
+      <aside class="layout-sidebar-second" role="complementary">
+        {{ page.left_sidebar }}
+      </aside>
+    {% endif %}
+  </main>
+
+  {# {{ page.page_bottom }} #}
+
+  {% if page.footer %}
+    <footer role="contentinfo">
+      {{ page.footer }}
+    </footer>
+  {% endif %}
+
+</div>{# /.layout-container #}
