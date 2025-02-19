@@ -15,3 +15,6 @@ regions:
   footer: Footer
   page_top: Page Top
   page_bottom: Page Bottom
+
+settings:
+  custom-theme-settings: true
