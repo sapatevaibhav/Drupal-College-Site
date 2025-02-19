@@ -1,7 +1,5 @@
 <?php
-
 use Drupal\Core\Template\TwigExtension;
-
 /**
  * Implements hook_preprocess_HOOK() for page templates.
  */
@@ -9,4 +7,5 @@ function simplecollege_preprocess_page(array &$variables) {
   // Pass theme settings to Twig.
   $variables['custom_logo_enabled'] = \Drupal::config('simplecollege.settings')->get('custom_logo');
   $variables['footer_text'] = \Drupal::config('simplecollege.settings')->get('footer_text');
+  $variables['custom_bg_color'] = theme_get_setting('custom_bg_color');
 }

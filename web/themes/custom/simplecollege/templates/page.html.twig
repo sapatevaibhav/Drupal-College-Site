@@ -1,12 +1,12 @@
-<div class="layout-container">
+<div class="layout-container"  >
 
   <header role="banner">
     {# Display Custom Logo if Enabled #}
-    {# {% if custom_logo_enabled %}
+    {% if custom_logo_enabled %}
       <div class="site-logo">
         <img src="{{ directory }}/images/logo.png" alt="College Logo">
       </div>
-    {% endif %} #}
+    {% endif %}
 
     {{ page.header }}
   </header>
@@ -14,7 +14,7 @@
   {{ page.menu }}
   {{ page.banner }}
 
-  <main role="main">
+  <main role="main" style="background-color: {{ custom_bg_color }};>
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
     <div class="layout-content">
@@ -39,9 +39,9 @@
       {{ page.footer }}
 
       {# Display Custom Footer Text if Set #}
-      {# {% if footer_text %}
+      {% if footer_text %}
         <p class="custom-footer-text">{{ footer_text }}</p>
-      {% endif %} #}
+      {% endif %}
 
     </footer>
   {% endif %}
