@@ -1,6 +1,6 @@
 
 {%
-  set classes = ['yellow-bg',
+  set classes = [
     dom_id ? 'js-view-dom-id-' ~ dom_id,
   ]
 %}
@@ -10,9 +10,32 @@
   {{ title_suffix }}
 
   {% if header %}
-    <header>
-      {{ header }}
-    </header>
+     <header role="banner" class="site-header">
+  <div class="header-container">
+
+    {# Logo #}
+{% if custom_logo_enabled %}
+  <div class="site-logo">
+    <a href="{{ path('<front>') }}">
+      <img src="{{ base_path }}themes/custom/simplecollege/images/logo.png" alt="College Logo">
+    </a>
+  </div>
+{% endif %}
+
+
+
+    {# Website Name #}
+    <div class="site-name">
+      College Sit3
+    </div>
+
+    {# Navigation Menu #}
+    <nav role="navigation" aria-labelledby="block-simplecollege-main-menu-menu" id="block-simplecollege-main-menu">
+      {{ page.menu }}
+    </nav>
+
+  </div>
+</header>
   {% endif %}
 
   {{ exposed }}
