@@ -30,7 +30,7 @@
   <div class="layout-main">
     <aside class="sidebar-left">
       {% if page.left_sidebar %}
-        <div class="recently-joined">
+        <div>
           {{ page.left_sidebar }}
         </div>
       {% endif %}
@@ -46,13 +46,13 @@
 
     <aside class="sidebar-right">
       {% if page.right_sidebar %}
-        <div class="right_sidebar">
+        <div>
           {{ page.right_sidebar }}
         </div>
       {% endif %}
 
       {% if page.welcome_blocks %}
-        <div class="welcome-blocks">
+        <div>
           {{ page.welcome_blocks }}
         </div>
       {% endif %}
