@@ -9,13 +9,3 @@ function simplecollege_preprocess_page(array &$variables) {
   $variables['footer_text'] = \Drupal::config('simplecollege.settings')->get('footer_text');
   $variables['custom_bg_color'] = theme_get_setting('custom_bg_color');
 }
-
-function simplecollege_preprocess_node(&$variables){
-    if ($variables['logged_in'] == TRUE && $variables['node']->getOwnerId() == $variables['user']->id()){
-        $variables['label']['#suffix'] = '- (You are AUTHOR)';
-    }
-}
-
-function simplecollege_preprocess_html(&$variables) {
-    $variables['#attached']['library'][] = 'simplecollege/global-styling';
-  }
