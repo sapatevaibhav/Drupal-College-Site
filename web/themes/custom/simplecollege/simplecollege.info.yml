@@ -18,3 +18,6 @@ regions:
 
 settings:
   custom-theme-settings: true
+  custom_footer_text: 'Default Footer Text'
+  custom_bg_color: '#FFFFFF'
+  enable_dark_mode: false

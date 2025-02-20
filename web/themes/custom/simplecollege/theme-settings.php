@@ -29,16 +29,11 @@ function simplecollege_form_system_theme_settings_alter(&$form, FormStateInterfa
     '#description' => t('Enter the custom text for the footer.'),
   ];
 
-  // Add submit handler.
-  $form['#submit'][] = 'simplecollege_theme_settings_submit';
-}
-
-/**
- * Submit handler for theme settings form.
- */
-function simplecollege_theme_settings_submit($form, FormStateInterface $form_state) {
-  \Drupal::configFactory()->getEditable('simplecollege.settings')
-    ->set('custom_logo', $form_state->getValue('custom_logo'))
-    ->set('footer_text', $form_state->getValue('footer_text'))
-    ->save();
+  // custom background for this theme
+  $form['custom_bg_color'] = [
+    '#type' => 'color',
+    '#title' => t('Background Color'),
+    '#default_value' => theme_get_setting('custom_bg_color'),
+    '#description' => t('Choose a background color for the site.'),
+  ];
 }
