@@ -19,3 +19,36 @@ function simplecollege_preprocess_node(&$variables){
 function simplecollege_preprocess_html(&$variables) {
     $variables['#attached']['library'][] = 'simplecollege/global-styling';
   }
+
+  function your_theme_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+    // Add a global class to all forms
+    $form['#attributes']['class'][] = 'custom-form';
+
+    foreach ($form as $key => &$element) {
+      if (is_array($element) && isset($element['#type'])) {
+        switch ($element['#type']) {
+          // Apply class to all text fields, email, password, tel, and date inputs
+          case 'textfield':
+          case 'email':
+          case 'password':
+          case 'tel':
+          case 'date':
+          case 'textarea':
+            $element['#attributes']['class'][] = 'custom-input';
+            break;
+
+          // Apply class to all dropdowns (select elements)
+          case 'select':
+            $element['#attributes']['class'][] = 'custom-dropdown';
+            break;
+
+          // Apply class to all submit and reset buttons
+          case 'submit':
+          case 'button':
+          case 'reset':
+            $element['#attributes']['class'][] = 'custom-button';
+            break;
+        }
+      }
+    }
+  }
