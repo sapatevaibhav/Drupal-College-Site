@@ -21,3 +21,7 @@ settings:
   custom_footer_text: 'Default Footer Text'
   custom_bg_color: '#FFFFFF'
   enable_dark_mode: false
+
+libraries:
+  - simplecollege/global-styling
+favicon: 'favicon.ico'

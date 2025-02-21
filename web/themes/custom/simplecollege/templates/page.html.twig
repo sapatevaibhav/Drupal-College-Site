@@ -1,49 +1,71 @@
-<div class="layout-container"  >
+<div class="layout-container">
 
-  <header role="banner">
-    {# Display Custom Logo if Enabled #}
-    {% if custom_logo_enabled %}
-      <div class="site-logo">
-        <img src="{{ directory }}/images/logo.png" alt="College Logo">
+  <header role="banner" class="site-header">
+  <div class="header-container">
+
+    {# Logo #}
+   {% if custom_logo_enabled %}
+  <div class="site-logo">
+    <a href="{{ path('<front>') }}">
+      <img src="{{ base_path }}themes/custom/simplecollege/images/logo.png" alt="College Logo">
+    </a>
+  </div>
+{% endif %}
+
+
+    {# Website Name #}
+    <div class="site-name">
+      College Sit3
+    </div>
+
+    {# Navigation Menu #}
+    <nav role="navigation" aria-labelledby="block-simplecollege-main-menu-menu" id="block-simplecollege-main-menu">
+      {{ page.menu }}
+    </nav>
+
+  </div>
+</header>
+
+
+  <div class="layout-main">
+    <aside class="sidebar-left">
+      {% if page.left_sidebar %}
+        <div>
+          {{ page.left_sidebar }}
+        </div>
+      {% endif %}
+    </aside>
+
+    <main role="main">
+      <a id="main-content" tabindex="-1"></a>
+
+      <div class="layout-content">
+        {{ page.content }}
       </div>
-    {% endif %}
+    </main>
 
-    {{ page.header }}
-  </header>
+    <aside class="sidebar-right">
+      {% if page.right_sidebar %}
+        <div>
+          {{ page.right_sidebar }}
+        </div>
+      {% endif %}
 
-  {{ page.menu }}
-  {{ page.banner }}
-
-  <main role="main" style="background-color: {{ custom_bg_color }};>
-    <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
-
-    <div class="layout-content">
-      {{ page.content }}
-    </div>{# /.layout-content #}
-
-    {% if page.right_sidebar %}
-      <aside class="layout-sidebar-first" role="complementary">
-        {{ page.right_sidebar }}
-      </aside>
-    {% endif %}
-
-    {% if page.left_sidebar %}
-      <aside class="layout-sidebar-second" role="complementary">
-        {{ page.left_sidebar }}
-      </aside>
-    {% endif %}
-  </main>
+      {% if page.welcome_blocks %}
+        <div>
+          {{ page.welcome_blocks }}
+        </div>
+      {% endif %}
+    </aside>
+  </div>
 
   {% if page.footer %}
-    <footer role="contentinfo">
+    <footer role="contentinfo" class="cust-footer" >
       {{ page.footer }}
-
-      {# Display Custom Footer Text if Set #}
       {% if footer_text %}
         <p class="custom-footer-text">{{ footer_text }}</p>
       {% endif %}
-
     </footer>
   {% endif %}
 
-</div>{# /.layout-container #}
+</div>
