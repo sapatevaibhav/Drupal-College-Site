@@ -1,0 +1,29 @@
+<article id="comment-{{ comment.id }}" class="custom-comment">
+  <header class="comment-header">
+    <span class="comment-author">
+      {{ comment.getOwner().getDisplayName() }}
+    </span>
+    <span class="comment-date">
+      {{ comment.getCreatedTime()|date('F j, Y - g:i A') }}
+    </span>
+  </header>
+
+  {# Display the comment title if it exists #}
+  {% if comment.get('subject').value %}
+    <h3 class="comment-title">
+      {{ comment.get('subject').value }}
+    </h3>
+  {% endif %}
+
+  {# Display the comment body #}
+  <div class="comment-body">
+    {{ comment.get('comment_body').value|raw }}
+  </div>
+
+ <footer class="comment-actions">
+  <ul class="comment-links">
+    {{ content.links }}
+  </ul>
+</footer>
+
+</article>
