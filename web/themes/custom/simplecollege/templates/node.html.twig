@@ -1,33 +1,31 @@
-<article{{ attributes }}>
+<article{{ attributes.addClass('mb-6') }}>
 
   {{ title_prefix }}
   {% if label and not page %}
-
-  <marquee>
-    <h2{{ title_attributes }}>
-      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-    </h2>
-</marquee>
-
+    <marquee>
+      <h2{{ title_attributes.addClass('text-2xl font-bold') }}>
+        <a href="{{ url }}" rel="bookmark" class="text-blue-600 hover:underline">{{ label }}</a>
+      </h2>
+    </marquee>
   {% endif %}
   {{ title_suffix }}
 
-{# {{ dump() }}
-{{ kint(_context|keys) }}
-{{ dump(title_suffix) }}
-{{ dump(title_prefix) }} #}
-
   {% if display_submitted %}
-    <footer>
+    <footer class="mt-4">
       {{ author_picture }}
-      <div{{ author_attributes }}>
+      <div{{ author_attributes.addClass('text-gray-600 text-sm') }}>
         {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
       </div>
     </footer>
   {% endif %}
 
-  <div{{ content_attributes }}>
-    {{ content }}
+  <div{{ content_attributes.addClass('prose max-w-none') }}>
+    {# Apply image styling specifically for article nodes #}
+    {% if attributes.hasClass('node--type-article') %}
+      {{ content|merge({'#attributes': {'class': 'w-[90%] h-[400px] object-cover block'}}) }}
+    {% else %}
+      {{ content }}
+    {% endif %}
   </div>
 
 </article>

@@ -1,28 +1,29 @@
-<article{{ attributes }}>
+<article{{ attributes.addClass('mb-6') }}>
 
   {{ title_prefix }}
   {% if label and not page %}
-
-    <h2{{ title_attributes }}>
-      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+    <h2{{ title_attributes.addClass('text-2xl font-bold') }}>
+      <a href="{{ url }}" rel="bookmark" class="text-blue-600 hover:underline">{{ label }}</a>
     </h2>
-
   {% endif %}
   {{ title_suffix }}
 
   {% if display_submitted %}
-    <footer>
+    <footer class="mt-4">
       {{ author_picture }}
-      <div{{ author_attributes }}>
+      <div{{ author_attributes.addClass('text-gray-600 text-sm') }}>
         {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
       </div>
     </footer>
   {% endif %}
 
-  <div{{ content_attributes }}>
+  <div{{ content_attributes.addClass('prose max-w-none') }}>
     {{ content }}
   </div>
-{% if view_mode == 'full' %}
-    {% trans %} <h3> Please report the issues on this page to developer... <h3> {% endtrans %}
-{% endif %}
+
+  {% if view_mode == 'full' %}
+    <h3 class="text-lg font-semibold text-gray-700 mt-4">
+      {% trans %}Please report the issues on this page to developer...{% endtrans %}
+    </h3>
+  {% endif %}
 </article>

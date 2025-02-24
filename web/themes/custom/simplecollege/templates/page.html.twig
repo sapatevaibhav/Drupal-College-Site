@@ -1,66 +1,47 @@
-<div class="layout-container">
+<div class="w-full">
 
-  <header role="banner" class="site-header">
-  <div class="header-container">
-
-    {# Logo #}
-   {% if custom_logo_enabled %}
-  <div class="site-logo">
-    <a href="{{ path('<front>') }}">
-      <img src="{{ base_path }}themes/custom/simplecollege/images/logo.png" alt="College Logo">
-    </a>
-  </div>
-{% endif %}
-
-
-    {# Website Name #}
-    <div class="site-name">
-      College Sit3
-    </div>
-
-    {# Navigation Menu #}
-    <nav role="navigation" aria-labelledby="block-simplecollege-main-menu-menu" id="block-simplecollege-main-menu">
-      {{ page.menu }}
-    </nav>
-
-  </div>
-</header>
-
-
-  <div class="layout-main">
-    <aside class="sidebar-left">
-      {% if page.left_sidebar %}
-        <div>
-          {{ page.left_sidebar }}
+  <header role="banner" class="bg-gray-500 text-white p-4 border-b-4 border-yellow-400">
+    <div class="flex items-center justify-between w-full px-4">
+      {% if custom_logo_enabled %}
+        <div class="inline-block">
+          <a href="{{ path('<front>') }}">
+            <img src="{{ base_path }}themes/custom/simplecollege/images/logo.png" alt="College Logo" class="w-[100px] h-auto block">
+          </a>
         </div>
       {% endif %}
+      <div class="text-4xl font-bold uppercase">
+        College Sit3
+      </div>
+      <nav role="navigation" aria-labelledby="block-simplecollege-main-menu-menu" id="block-simplecollege-main-menu" class="md:flex md:items-center">
+        {{ page.menu }}
+      </nav>
+    </div>
+  </header>
+
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-5 p-5">
+    <aside class="col-span-1">
+      {% if page.left_sidebar %}
+        {{ page.left_sidebar }}
+      {% endif %}
     </aside>
-
-    <main role="main">
+    <main role="main" class="col-span-1 md:col-span-2">
       <a id="main-content" tabindex="-1"></a>
-
-      <div class="layout-content">
+      <div class="bg-blue-200 p-5 rounded-lg shadow-md">
         {{ page.content }}
       </div>
     </main>
-
-    <aside class="sidebar-right">
+    <aside class="col-span-1">
       {% if page.right_sidebar %}
-        <div>
-          {{ page.right_sidebar }}
-        </div>
+        {{ page.right_sidebar }}
       {% endif %}
-
       {% if page.welcome_blocks %}
-        <div>
-          {{ page.welcome_blocks }}
-        </div>
+        {{ page.welcome_blocks }}
       {% endif %}
     </aside>
   </div>
 
   {% if page.footer %}
-    <footer role="contentinfo" class="cust-footer" >
+    <footer role="contentinfo" class="text-center p-5 bg-gray-500 text-white border-t-4 border-yellow-400">
       {{ page.footer }}
       {% if footer_text %}
         <p class="custom-footer-text">{{ footer_text }}</p>

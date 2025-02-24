@@ -1,0 +1,20 @@
+{#
+  Twig template for sidebar blocks (left or right).
+  Variables:
+    - content: The block content (e.g., menu, text, etc.).
+    - attributes: HTML attributes for the block wrapper.
+    - block_id: The block’s machine name (e.g., 'simplecollege_main_menu').
+#}
+{% set is_menu_block = block_id starts with 'simplecollege_main_menu' %}
+
+<div{{ attributes.addClass('!bg-gray-200 p-4 rounded-lg shadow-md mb-4') }}>
+  {% if is_menu_block %}
+    {# Main Menu Block Styling #}
+    <nav class="flex flex-col-reverse gap-1 p-2 bg-blue-100 rounded">
+      {{ content }}
+    </nav>
+  {% else %}
+    {# Generic Sidebar Content #}
+    {{ content }}
+  {% endif %}
+</div>

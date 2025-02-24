@@ -1,29 +1,19 @@
-<article id="comment-{{ comment.id }}" class="custom-comment">
-  <header class="comment-header">
-    <span class="comment-author">
-      {{ comment.getOwner().getDisplayName() }}
-    </span>
-    <span class="comment-date">
-      {{ comment.getCreatedTime()|date('F j, Y - g:i A') }}
-    </span>
+<article id="comment-{{ comment.id }}" class="border-2 border-gray-500 p-4 mb-4 rounded-lg bg-sky-200/40">
+  <header class="flex justify-between text-sm text-gray-600 mb-2">
+    <span>{{ comment.getOwner().getDisplayName() }}</span>
+    <span>{{ comment.getCreatedTime()|date('F j, Y - g:i A') }}</span>
   </header>
-
-  {# Display the comment title if it exists #}
   {% if comment.get('subject').value %}
-    <h3 class="comment-title">
-      {{ comment.get('subject').value }}
-    </h3>
+    <h3 class="text-lg font-semibold text-gray-700">{{ comment.get('subject').value }}</h3>
   {% endif %}
-
-  {# Display the comment body #}
-  <div class="comment-body">
+  <div class="text-base text-gray-800 leading-relaxed">
     {{ comment.get('comment_body').value|raw }}
   </div>
-
- <footer class="comment-actions">
-  <ul class="comment-links">
-    {{ content.links }}
-  </ul>
-</footer>
-
+  <footer class="flex items-center space-x-2 mt-2 text-blue-600">
+    {% if content.links %}
+      {{ content.links }}
+    {% else %}
+      <span>No actions available (check permissions or preprocessing)</span>
+    {% endif %}
+  </footer>
 </article>
