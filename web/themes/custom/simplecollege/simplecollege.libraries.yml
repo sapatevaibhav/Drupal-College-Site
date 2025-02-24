@@ -1,3 +1,6 @@
+tailwind:
+  js:
+    https://cdn.tailwindcss.com/3.4.1: { type: external, minified: true }
 global-styling:
   css:
     theme:

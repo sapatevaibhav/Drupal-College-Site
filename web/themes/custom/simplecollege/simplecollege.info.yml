@@ -2,9 +2,9 @@ name: Simple college theme
 type: theme
 description: "A test theme for my college website"
 core_version_requirement: ^9 || ^10 || ^11
-core: ^10
 base theme: stark
 screenshot: screenshot.png
+
 regions:
   header: Header
   menu: Primary Menu
@@ -23,5 +23,8 @@ settings:
   enable_dark_mode: false
 
 libraries:
+  - simplecollege/tailwind
   - simplecollege/global-styling
+
+
 favicon: 'favicon.ico'
