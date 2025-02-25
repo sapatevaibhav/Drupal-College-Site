@@ -1,0 +1,5 @@
+name: 'Alert Button Module'
+type: module
+description: 'Adds a button that triggers an alert using Drupal Behaviors.'
+core_version_requirement: ^9 || ^10 || ^11
+package: Custom

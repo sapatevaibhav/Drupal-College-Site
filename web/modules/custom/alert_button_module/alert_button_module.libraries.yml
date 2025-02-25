@@ -1,0 +1,7 @@
+alert_button:
+  js:
+    js/alert-button.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/once
