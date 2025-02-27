@@ -1,0 +1,23 @@
+chatbot.recent_student:
+  path: '/chatbot/recent-student'
+  defaults:
+    _controller: 'Drupal\chatbot\Controller\ChatbotController::getRecentStudent'
+    _format: 'json'
+  requirements:
+    _permission: 'access content'
+
+chatbot.students_by_department:
+  path: '/chatbot/students/{dept}'
+  defaults:
+    _controller: 'Drupal\chatbot\Controller\ChatbotController::getStudentsByDepartment'
+    _format: 'json'
+  requirements:
+    _permission: 'access content'
+
+chatbot.teachers_by_department:
+  path: '/chatbot/teachers/{dept}'
+  defaults:
+    _controller: 'Drupal\chatbot\Controller\ChatbotController::getTeachersByDepartment'
+    _format: 'json'
+  requirements:
+    _permission: 'access content'

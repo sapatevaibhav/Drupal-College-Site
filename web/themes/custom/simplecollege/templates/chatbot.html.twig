@@ -1,0 +1,28 @@
+{# <div id="chatbot-container" class="fixed bottom-16 right-4 bg-white shadow-lg rounded-lg w-80 h-96 flex flex-col border">
+    <!-- Chat Header -->
+    <div class="bg-blue-600 text-white p-3 rounded-t-lg text-center flex justify-between items-center">
+        <strong>Chatbot</strong>
+        <button onclick="document.getElementById('chatbot-container').remove()" class="text-white">✖</button>
+    </div>
+
+    <!-- Chat Messages Area (Upper Half) -->
+    <div id="chatbot-messages" class="flex-1 p-3 overflow-y-auto space-y-2 h-1/2">
+        <p class="text-gray-500">Ask a question below.</p>
+    </div>
+
+    <!-- Questions List (Lower Half, Scrollable) -->
+    <div class="p-3 border-t h-1/2 overflow-y-auto">
+        <ul class="space-y-2">
+            <li><button onclick="askQuestion('/jsonapi/node/student?sort=-created&page[limit]=1', 'Who is the most recently joined student?')" class="w-full text-right bg-blue-500 text-white px-4 py-2 rounded-lg">Recent Student</button></li>
+            <li><button onclick="askQuestion('/jsonapi/node/student?filter[field_dept.meta.drupal_internal__target_id]=1&page[limit]=5', 'List 5 students from the Tech department')" class="w-full text-right bg-blue-500 text-white px-4 py-2 rounded-lg">5 Tech Students</button></li>
+            <li><button onclick="askQuestion('/jsonapi/node/student?filter[field_course]=Cloclugidauipal', 'List all students from the Cloclugidauipal course')" class="w-full text-right bg-blue-500 text-white px-4 py-2 rounded-lg">Course Students</button></li>
+            <li><button onclick="askQuestion('/jsonapi/node/department', 'What are the names of all departments?')" class="w-full text-right bg-blue-500 text-white px-4 py-2 rounded-lg">All Departments</button></li>
+            <li><button onclick="askQuestion('/jsonapi/node/department?filter[field_department_name]=Tech', 'Give a short description of the Tech department')" class="w-full text-right bg-blue-500 text-white px-4 py-2 rounded-lg">Tech Dept Info</button></li>
+            <li><button onclick="askQuestion('/jsonapi/node/teacher?filter[field_subject_specialization]=Dignissim%20ex', 'List teachers specializing in Dignissim ex')" class="w-full text-right bg-blue-500 text-white px-4 py-2 rounded-lg">Specialized Teachers</button></li>
+            <li><button onclick="askQuestion('/jsonapi/node/teacher?filter[field_office_hours]=Ro', 'Which teachers are available during Ro office hours?')" class="w-full text-right bg-blue-500 text-white px-4 py-2 rounded-lg">Office Hours</button></li>
+            <li><button onclick="askQuestion('/jsonapi/node/teacher?filter[field_department.meta.drupal_internal__target_id]=9', 'Which teachers belong to the HR department?')" class="w-full text-right bg-blue-500 text-white px-4 py-2 rounded-lg">HR Teachers</button></li>
+            <li><button onclick="askQuestion('/jsonapi/node/department?sort=-created&page[limit]=1', 'Show the latest department added')" class="w-full text-right bg-blue-500 text-white px-4 py-2 rounded-lg">Latest Dept</button></li>
+            <li><button onclick="askQuestion('/jsonapi/node/student?filter[title]=Hendrerit%20Ideo', 'What is the personal statement of Hendrerit Ideo?')" class="w-full text-right bg-blue-500 text-white px-4 py-2 rounded-lg">Student Statement</button></li>
+        </ul>
+    </div>
+</div> #}

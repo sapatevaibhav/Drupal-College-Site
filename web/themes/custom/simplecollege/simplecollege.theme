@@ -20,7 +20,7 @@ function simplecollege_preprocess_html(&$variables) {
     $variables['#attached']['library'][] = 'simplecollege/global-styling';
   }
 
-  function your_theme_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  function simplecollege_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
     // Add a global class to all forms
     $form['#attributes']['class'][] = 'custom-form';
 
@@ -50,5 +50,28 @@ function simplecollege_preprocess_html(&$variables) {
             break;
         }
       }
+    }
+  }
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for node templates.
+ */
+function simplecollege_theme_suggestions_node_alter(array &$suggestions, array $variables) {
+    if (isset($variables['elements']['#node'])) {
+      $node = $variables['elements']['#node'];
+      // Add a suggestion based on node type.
+      $suggestions[] = 'node__' . $node->getType();
+    }
+  }
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for views templates.
+ */
+function simplecollege_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {
+    if (!empty($variables['view'])) {
+      $view = $variables['view'];
+      // Add a suggestion based on the view name.
+      $suggestions[] = 'views_view__' . $view->id();
+
+      // Add a suggestion based on view name and display ID.
+      $suggestions[] = 'views_view__' . $view->id() . '__' . $view->current_display;
     }
   }

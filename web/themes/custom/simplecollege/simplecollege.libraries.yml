@@ -5,3 +5,10 @@ global-styling:
   css:
     theme:
       css/custom.css: {}
+
+chatbot:
+  js:
+    js/chatbot.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery

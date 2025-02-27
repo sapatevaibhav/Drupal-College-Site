@@ -25,6 +25,7 @@ settings:
 libraries:
   - simplecollege/tailwind
   - simplecollege/global-styling
+  - simplecollege/chatbot
 
 
 favicon: 'favicon.ico'
