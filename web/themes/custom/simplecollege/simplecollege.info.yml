@@ -29,3 +29,6 @@ libraries:
 
 
 favicon: 'favicon.ico'
+single_directory_components:
+  directories:
+    - components

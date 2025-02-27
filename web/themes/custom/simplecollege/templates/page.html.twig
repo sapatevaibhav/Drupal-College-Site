@@ -41,6 +41,18 @@
     </aside>
   </div>
 
+  {% embed 'simplecollege:chip' with {
+  color: 'primary',
+  dismissable: true
+} %}
+
+  {% block chip_content %}
+    Type: <span>{{ node.bundle() }}</span>
+  {% endblock %}
+
+{% endembed %}
+
+
   {% if page.footer %}
     <footer role="contentinfo" class="text-center p-5 bg-gray-500 text-white border-t-4 border-yellow-400">
       {{ page.footer }}
