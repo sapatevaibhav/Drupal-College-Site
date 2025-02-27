@@ -1,0 +1,11 @@
+<?php
+
+function my_module_page_attachments(array &$attachments) {
+  // Pass the greeting to JavaScript
+  $attachments['#attached']['drupalSettings']['my_module']['greeting'] = 'Hello from PHP!';
+  // Attach the library
+  $attachments['#attached']['library'][] = 'my_module/my_settings';
+}
+function my_module_page_build(array &$page) {
+    $page['#markup'] .= '<button class="settings-button">Show Greeting</button>';
+  }

@@ -1,0 +1,4 @@
+name: My Module
+type: module
+description: Passes settings to JavaScript using drupalSettings.
+core_version_requirement: ^9 || ^10 ||^11

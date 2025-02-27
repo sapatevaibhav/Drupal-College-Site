@@ -1,0 +1,7 @@
+my_settings:
+  version: 1.0
+  js:
+    js/my_script.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
