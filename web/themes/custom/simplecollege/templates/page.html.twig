@@ -19,6 +19,65 @@
     </div>
   </header>
 
+
+{% if page.carousel or is_front %}
+  <div class="carousel-wrapper my-4">
+    {% if page.carousel %}
+      {{ page.carousel }}
+    {% else %}
+      {# Default carousel on front page if no specific carousel content is provided #}
+      {% include directory ~ '/components/carousel/carousel.twig' with {
+        'items': [
+          {
+            'image': base_path ~ 'themes/custom/simplecollege/images/image.webp',
+            'alt': 'Welcome to Simple College',
+            'caption': 'Empowering students through education'
+          },
+          {
+            'image': base_path ~ 'themes/custom/simplecollege/images/image1.jpeg',
+            'alt': 'Campus life',
+            'caption': 'Explore our vibrant campus community'
+          },
+          {
+            'image': base_path ~ 'themes/custom/simplecollege/images/image2.jpeg',
+            'alt': 'Student resources',
+            'caption': 'Access our comprehensive student resources'
+          },
+          {
+            'image': base_path ~ 'themes/custom/simplecollege/images/image3.jpeg',
+            'alt': 'Academic excellence',
+            'caption': 'Discover our renowned academic programs'
+          },
+          {
+            'image': base_path ~ 'themes/custom/simplecollege/images/a image.webp',
+            'alt': 'Campus facilities',
+            'caption': 'State-of-the-art campus facilities'
+          },
+          {
+            'image': base_path ~ 'themes/custom/simplecollege/images/image a.webp',
+            'alt': 'Student activities',
+            'caption': 'Get involved in exciting student activities'
+          },
+          {
+            'image': base_path ~ 'themes/custom/simplecollege/images/college.webp',
+            'alt': 'College overview',
+            'caption': 'Experience college life at its best'
+          }
+        ],
+        'id': 'homepage-carousel',
+        'settings': {
+          'autoplay': true,
+          'autoplaySpeed': 2000,
+          'dots': true,
+          'arrows': true
+        }
+      } %}
+      {{ attach_library('simplecollege/carousel') }}
+    {% endif %}
+  </div>
+{% endif %}
+
+
   <div class="grid grid-cols-1 md:grid-cols-4 gap-5 p-5">
     <aside class="col-span-1">
       {% if page.left_sidebar %}
@@ -40,19 +99,14 @@
       {% endif %}
     </aside>
   </div>
-
   {% embed 'simplecollege:chip' with {
   color: 'primary',
   dismissable: true
 } %}
-
   {% block chip_content %}
     Type: <span>{{ node.bundle() }}</span>
   {% endblock %}
-
 {% endembed %}
-
-
   {% if page.footer %}
     <footer role="contentinfo" class="text-center p-5 bg-gray-500 text-white border-t-4 border-yellow-400">
       {{ page.footer }}
@@ -61,5 +115,4 @@
       {% endif %}
     </footer>
   {% endif %}
-
 </div>

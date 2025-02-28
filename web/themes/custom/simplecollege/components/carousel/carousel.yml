@@ -1,0 +1,6 @@
+name: Carousel
+description: A responsive image carousel component
+libraryOverrides:
+  dependencies:
+    - core/once
+    - core/drupal

@@ -12,10 +12,14 @@ chatbot:
   dependencies:
     - core/drupal
     - core/jquery
-# simplecollege.libraries.yml
-faculty_profile:
+    - core/once
+
+carousel:
   css:
     component:
-      components/faculty_profile/faculty_profile.css: {}
+      components/carousel/carousel.css: {}
   js:
-    components/faculty_profile/faculty_profile.js: {}
+    components/carousel/carousel.js: {}
+  dependencies:
+    - core/drupal
+    - core/once

@@ -1,0 +1,63 @@
+{#
+/**
+ * @file
+ * A carousel component.
+ *
+ * Variables:
+ * - items: An array of items to display in the carousel.
+ *   - image: The image URL.
+ *   - alt: Alt text for the image.
+ *   - caption: Optional caption for the slide.
+ * - id: A unique ID for this carousel instance.
+ * - settings: An object containing carousel settings.
+ *   - autoplay: Boolean indicating if autoplay is enabled.
+ *   - autoplaySpeed: Speed of autoplay in milliseconds.
+ *   - dots: Boolean indicating if navigation dots should be displayed.
+ *   - arrows: Boolean indicating if navigation arrows should be displayed.
+ */
+#}
+
+{% set carousel_id = id|default('carousel-' ~ random()) %}
+{% set settings = settings|default({
+  autoplay: true,
+  autoplaySpeed: 5000,
+  dots: true,
+  arrows: true
+}) %}
+
+<div class="carousel"
+     id="{{ carousel_id }}"
+     data-autoplay="{{ settings.autoplay|json_encode }}"
+     data-autoplay-speed="{{ settings.autoplaySpeed }}"
+     data-dots="{{ settings.dots|json_encode }}"
+     data-arrows="{{ settings.arrows|json_encode }}">
+
+  <div class="carousel__container">
+    {% for item in items %}
+      <div class="carousel__slide">
+        <img class="carousel__image" src="{{ item.image }}" alt="{{ item.alt|default('Carousel image') }}">
+        {% if item.caption %}
+          <div class="carousel__caption">{{ item.caption }}</div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+
+  {% if settings.arrows %}
+    <button class="carousel__arrow carousel__arrow--prev" aria-label="Previous slide">
+      <span aria-hidden="true">&lsaquo;</span>
+    </button>
+    <button class="carousel__arrow carousel__arrow--next" aria-label="Next slide">
+      <span aria-hidden="true">&rsaquo;</span>
+    </button>
+  {% endif %}
+
+  {% if settings.dots %}
+    <div class="carousel__dots">
+      {% for item in items %}
+        <button class="carousel__dot {% if loop.first %}carousel__dot--active{% endif %}"
+                aria-label="Go to slide {{ loop.index }}"></button>
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>
