@@ -1,0 +1,17 @@
+label: 'Student Profile'
+description: 'Displays a student profile with name, department, course, and profile picture.'
+category: 'Content'
+schema:
+  properties:
+    title:
+      type: string
+    department:
+      type: string
+    course:
+      type: string
+    year_of_study:
+      type: string
+    personal_statement:
+      type: string
+    profile_picture:
+      type: string

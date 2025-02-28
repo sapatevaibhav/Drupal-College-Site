@@ -31,3 +31,14 @@ student-list:
   dependencies:
     - core/drupal
     - core/jquery
+
+student-profile:
+  version: 1.0
+  css:
+    theme:
+      components/student-profile/student-profile.css: {}
+  js:
+    components/student-profile/student-profile.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
