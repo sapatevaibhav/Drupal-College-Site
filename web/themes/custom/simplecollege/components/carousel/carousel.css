@@ -4,21 +4,28 @@
     max-width: 1200px;
     margin: 0 auto;
     overflow: hidden;
+    /* Add a specific height constraint */
+    height: 300px; /* Adjust this value to your desired height */
   }
 
   .carousel__container {
     display: flex;
     transition: transform 0.5s ease;
+    height: 100%; /* Ensures the container takes full height */
   }
 
   .carousel__slide {
-    flex: 0 0 100%;
+    flex: 0 0 80%; /* Set to 80% to show 10% of prev/next slides on each side */
     position: relative;
+    height: 100%;
+    /* Center the active slide */
+    margin: 0 auto;
   }
 
   .carousel__image {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover; /* This ensures images cover the area without distortion */
     display: block;
   }
 
@@ -88,6 +95,14 @@
 
   /* Responsive adjustments */
   @media (max-width: 768px) {
+    .carousel {
+      height: 200px; /* Smaller height on mobile devices */
+    }
+
+    .carousel__slide {
+      flex: 0 0 90%; /* Show less of prev/next slides on mobile */
+    }
+
     .carousel__arrow {
       width: 40px;
       height: 40px;

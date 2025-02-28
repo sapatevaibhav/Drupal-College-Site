@@ -14,6 +14,8 @@
  *   - autoplaySpeed: Speed of autoplay in milliseconds.
  *   - dots: Boolean indicating if navigation dots should be displayed.
  *   - arrows: Boolean indicating if navigation arrows should be displayed.
+ *   - peekPercentage: Percentage of previous and next slides to show (default: 10)
+ *   - height: Optional height for the carousel in pixels.
  */
 #}
 
@@ -22,7 +24,9 @@
   autoplay: true,
   autoplaySpeed: 5000,
   dots: true,
-  arrows: true
+  arrows: true,
+  peekPercentage: 10,
+  height: 300
 }) %}
 
 <div class="carousel"
@@ -30,7 +34,9 @@
      data-autoplay="{{ settings.autoplay|json_encode }}"
      data-autoplay-speed="{{ settings.autoplaySpeed }}"
      data-dots="{{ settings.dots|json_encode }}"
-     data-arrows="{{ settings.arrows|json_encode }}">
+     data-arrows="{{ settings.arrows|json_encode }}"
+     data-peek-percentage="{{ settings.peekPercentage }}"
+     {% if settings.height %}style="height: {{ settings.height }}px;"{% endif %}>
 
   <div class="carousel__container">
     {% for item in items %}

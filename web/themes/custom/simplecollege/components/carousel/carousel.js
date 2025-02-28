@@ -10,7 +10,7 @@
      */
     Drupal.behaviors.carousel = {
       attach(context, settings) {
-        // Use the imported once function instead of Drupal.once
+        // Use the imported once function
         once('carousel', '.carousel', context).forEach(carousel => {
           // Initialize the carousel.
           new CarouselComponent(carousel);
@@ -40,12 +40,14 @@
           autoplay: JSON.parse(this.carousel.dataset.autoplay || 'true'),
           autoplaySpeed: parseInt(this.carousel.dataset.autoplaySpeed || '5000', 10),
           dots: JSON.parse(this.carousel.dataset.dots || 'true'),
-          arrows: JSON.parse(this.carousel.dataset.arrows || 'true')
+          arrows: JSON.parse(this.carousel.dataset.arrows || 'true'),
+          peekPercentage: parseInt(this.carousel.dataset.peekPercentage || '10', 10) // New setting for peek amount
         };
 
         // Initialize state.
         this.currentIndex = 0;
-        this.slideWidth = 100; // 100% width for each slide
+        this.slideWidth = 80; // 80% width for each slide (showing 20% of prev/next)
+        this.slideOffset = 10; // 10% offset on each side for peeking
         this.slideCount = this.slides.length;
         this.autoplayTimer = null;
 
@@ -62,6 +64,9 @@
           return;
         }
 
+        // Apply initial styling to slides based on peek setting
+        this.applySlideStyles();
+
         // Set up event listeners.
         this.addEventListeners();
 
@@ -72,6 +77,20 @@
 
         // Set initial slide position.
         this.goToSlide(0);
+      }
+
+      /**
+       * Apply styling to slides for the peek effect
+       */
+      applySlideStyles() {
+        // Set slide width based on peek percentage
+        const slideWidth = 100 - (this.settings.peekPercentage * 2);
+        this.slideWidth = slideWidth;
+        this.slideOffset = this.settings.peekPercentage;
+
+        this.slides.forEach(slide => {
+          slide.style.flex = `0 0 ${slideWidth}%`;
+        });
       }
 
       /**
@@ -167,7 +186,7 @@
         this.autoplayTimer = setInterval(() => {
           this.goToNext();
         }, this.settings.autoplaySpeed);
-    }
+      }
 
       /**
        * Pause autoplay timer.
@@ -200,8 +219,12 @@
        * @param {number} index - The slide index to go to.
        */
       goToSlide(index) {
-        // Update the transform to move to the new slide.
-        this.container.style.transform = `translateX(-${index * this.slideWidth}%)`;
+        // Calculate the position with peek offset
+        const position = index * this.slideWidth;
+        const offset = this.slideOffset;
+
+        // Update the transform to move to the new slide, accounting for the peek effect
+        this.container.style.transform = `translateX(-${position}%)`;
 
         // Update active dot.
         if (this.dots.length) {
@@ -236,4 +259,4 @@
       }
     }
 
-})(Drupal, once);
+  })(Drupal, once);
