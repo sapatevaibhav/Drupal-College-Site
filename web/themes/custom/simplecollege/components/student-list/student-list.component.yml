@@ -1,0 +1,14 @@
+label: 'Student List'
+description: 'Displays the 10 most recently joined students.'
+category: 'Content'
+schema:
+  properties:
+    students:
+      type: array
+      items:
+        type: object
+        properties:
+          title:
+            type: string
+          department:
+            type: string

@@ -16,5 +16,9 @@
   {% else %}
     {# Generic Sidebar Content #}
     {{ content }}
+    {% block stylesheets %}
+{{ attach_library('simplecollege/student-list') }}
+ {% include directory ~ '/components/student-list/student-list.twig' %}
+{% endblock %}
   {% endif %}
 </div>

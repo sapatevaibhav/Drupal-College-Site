@@ -1,0 +1,6 @@
+student-list:
+  js:
+    js/student-list.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
