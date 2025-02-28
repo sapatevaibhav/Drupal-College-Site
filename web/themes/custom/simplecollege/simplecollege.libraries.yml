@@ -23,3 +23,11 @@ carousel:
   dependencies:
     - core/drupal
     - core/once
+
+
+student-list:
+  js:
+    components/student-list/student-list.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery

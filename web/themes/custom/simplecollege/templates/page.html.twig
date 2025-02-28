@@ -19,7 +19,6 @@
     </div>
   </header>
 
-
 {% if page.carousel or is_front %}
   <div class="carousel-wrapper my-4">
     {% if page.carousel %}
@@ -69,14 +68,15 @@
           'autoplay': true,
           'autoplaySpeed': 2000,
           'dots': true,
-          'arrows': true
+          'arrows': true,
+          'peekPercentage': 10,
+          'height': 350
         }
       } %}
       {{ attach_library('simplecollege/carousel') }}
     {% endif %}
   </div>
-{% endif %}
-
+    {% endif %}
 
   <div class="grid grid-cols-1 md:grid-cols-4 gap-5 p-5">
     <aside class="col-span-1">
