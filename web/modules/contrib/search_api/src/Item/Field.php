@@ -674,7 +674,8 @@ class Field implements \IteratorAggregate, FieldInterface {
   /**
    * {@inheritdoc}
    */
-  public function getIterator(): \Traversable {
+  #[\ReturnTypeWillChange]
+  public function getIterator() {
     return new \ArrayIterator($this->values);
   }
 

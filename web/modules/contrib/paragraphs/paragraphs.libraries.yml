@@ -52,6 +52,7 @@ drupal.paragraphs.actions:
     - core/drupal
 
 drupal.paragraphs.list_builder:
+  version: VERSION
   css:
     theme:
       css/paragraphs.list-builder.css: {}

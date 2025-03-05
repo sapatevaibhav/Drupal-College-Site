@@ -4,7 +4,6 @@ namespace Drupal\search_api_db\Plugin\search_api\backend;
 
 use Drupal\Component\Plugin\Exception\PluginException;
 use Drupal\Component\Utility\Crypt;
-use Drupal\Component\Utility\DeprecationHelper;
 use Drupal\Component\Utility\Unicode;
 use Drupal\Core\Cache\RefinableCacheableDependencyInterface;
 use Drupal\Core\Config\ConfigFactoryInterface;
@@ -652,17 +651,11 @@ class Database extends BackendPluginBase implements AutocompleteBackendInterface
    * {@inheritdoc}
    */
   public function postUpdate() {
-    $original = DeprecationHelper::backwardsCompatibleCall(
-      \Drupal::VERSION,
-      '11.2',
-      fn () => $this->server->getOriginal(),
-      fn () => $this->server->original,
-    );
-    if (!$original) {
+    if (empty($this->server->original)) {
       // When in doubt, opt for the safer route and reindex.
       return TRUE;
     }
-    $original_config = $original->getBackendConfig();
+    $original_config = $this->server->original->getBackendConfig();
     $original_config += $this->defaultConfiguration();
     return $this->configuration['min_chars'] != $original_config['min_chars']
       || $this->configuration['phrase'] != $original_config['phrase'];
@@ -2115,21 +2108,12 @@ class Database extends BackendPluginBase implements AutocompleteBackendInterface
         $words = static::splitIntoWords($processed_keys);
         if ($this->configuration['min_chars'] > 1) {
           $words = array_filter($words, function (string $word): bool {
-            return is_numeric($word)
-              || mb_strlen($word) >= $this->configuration['min_chars'];
+            return mb_strlen($word) >= $this->configuration['min_chars'];
           });
         }
       }
-
-      // Apply special handling of numeric tokens that is also applied at
-      // indexing time.
-      $words = array_map(
-        static fn ($word) => is_numeric($word) ? static::cleanNumericString($word) : $word,
-        $words,
-      );
-
       if (count($words) <= 1) {
-        return $words ? mb_substr(reset($words), 0, static::TOKEN_LENGTH_MAX) : NULL;
+        return mb_substr($processed_keys, 0, static::TOKEN_LENGTH_MAX);
       }
 
       if ($this->configuration['phrase'] === 'disabled') {
@@ -2685,10 +2669,6 @@ class Database extends BackendPluginBase implements AutocompleteBackendInterface
         }
 
         if ($field_name == 'search_api_random') {
-          $option = $query->getOption('search_api_random_sort');
-          if (isset($option['seed'])) {
-            $db_query->addMetaData('search_api_random_sort_seed', $option['seed']);
-          }
           $this->dbmsCompatibility->orderByRandom($db_query);
           continue;
         }
@@ -3111,7 +3091,7 @@ class Database extends BackendPluginBase implements AutocompleteBackendInterface
   /**
    * {@inheritdoc}
    */
-  protected function getSpecialFields(IndexInterface $index, ?ItemInterface $item = NULL) {
+  protected function getSpecialFields(IndexInterface $index, ItemInterface $item = NULL) {
     $fields = parent::getSpecialFields($index, $item);
     unset($fields['search_api_id']);
     return $fields;

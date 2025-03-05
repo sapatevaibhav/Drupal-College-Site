@@ -2,7 +2,6 @@
 
 namespace Drupal\search_api\Entity;
 
-use Drupal\Component\Utility\DeprecationHelper;
 use Drupal\Core\Cache\Cache;
 use Drupal\Core\Config\Action\Attribute\ActionMethod;
 use Drupal\Core\Config\Entity\ConfigEntityBase;
@@ -309,13 +308,7 @@ class Server extends ConfigEntityBase implements ServerInterface {
 
     $task_manager = \Drupal::getContainer()
       ->get('search_api.task_manager');
-    $original = DeprecationHelper::backwardsCompatibleCall(
-      \Drupal::VERSION,
-      '11.2',
-      fn () => $index->getOriginal(),
-      fn () => $index->original ?? NULL,
-    );
-    $task_manager->addTask(__FUNCTION__, $this, $index, $original);
+    $task_manager->addTask(__FUNCTION__, $this, $index, $index->original ?? NULL);
   }
 
   /**
@@ -490,13 +483,7 @@ class Server extends ConfigEntityBase implements ServerInterface {
     parent::preSave($storage);
 
     // The rest of the code only applies to updates.
-    $original = DeprecationHelper::backwardsCompatibleCall(
-      \Drupal::VERSION,
-      '11.2',
-      fn () => $this->getOriginal(),
-      fn () => $this->original ?? NULL,
-    );
-    if (!$original) {
+    if (!isset($this->original)) {
       return;
     }
     // Retrieve active config overrides for this server.
@@ -531,7 +518,7 @@ class Server extends ConfigEntityBase implements ServerInterface {
         && !$this->isInstallingFromExtension()
         && !isset($overrides['status'])
         && !$this->status()
-        && $original->status()) {
+        && $this->original->status()) {
       foreach ($this->getIndexes(['status' => TRUE]) as $index) {
         /** @var \Drupal\search_api\IndexInterface $index */
         $index->setStatus(FALSE)->save();

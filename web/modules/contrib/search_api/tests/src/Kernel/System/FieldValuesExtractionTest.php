@@ -61,6 +61,7 @@ class FieldValuesExtractionTest extends KernelTestBase {
   public function setUp(): void {
     parent::setUp();
 
+    $this->installSchema('system', ['sequences']);
     $this->installEntitySchema('entity_test_mulrev_changed');
     $this->installEntitySchema('user');
     $this->installConfig(['search_api_test_extraction', 'user']);

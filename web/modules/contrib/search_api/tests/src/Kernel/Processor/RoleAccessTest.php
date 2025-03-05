@@ -42,6 +42,7 @@ class RoleAccessTest extends ProcessorTestBase {
   public function setUp($processor = NULL): void {
     parent::setUp('role_access');
 
+    $this->installSchema('system', ['sequences']);
     NodeType::create(['type' => 'page', 'name' => 'page'])->save();
 
     // Enable the programmable role-based access controls found in the

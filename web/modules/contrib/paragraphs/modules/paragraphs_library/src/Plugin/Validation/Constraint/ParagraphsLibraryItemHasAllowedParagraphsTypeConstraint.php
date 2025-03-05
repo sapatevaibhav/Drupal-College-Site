@@ -1,9 +1,7 @@
 <?php
 
-
 namespace Drupal\paragraphs_library\Plugin\Validation\Constraint;
 
-use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Symfony\Component\Validator\Constraint;
 
 /**
@@ -21,11 +19,6 @@ use Symfony\Component\Validator\Constraint;
  *   type = {"entity"}
  * )
  */
-#[\Drupal\Core\Validation\Attribute\Constraint(
-  id: 'ParagraphsLibraryItemHasAllowedParagraphsType',
-  label: new TranslatableMarkup("Paragraphs type of Paragraphs library item's root is allowed in the parent field.", [], ['context' => 'Validation']),
-  type: ['entity']
-)]
 class ParagraphsLibraryItemHasAllowedParagraphsTypeConstraint extends Constraint {
 
   /**

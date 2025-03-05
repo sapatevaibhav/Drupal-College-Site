@@ -2,9 +2,7 @@
 
 namespace Drupal\paragraphs\Plugin\EntityReferenceSelection;
 
-use Drupal\Core\Entity\Attribute\EntityReferenceSelection;
 use Drupal\Core\Entity\Plugin\EntityReferenceSelection\DefaultSelection;
-use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\Url;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Component\Utility\NestedArray;
@@ -20,13 +18,6 @@ use Drupal\Component\Utility\NestedArray;
  *   weight = 0
  * )
  */
-#[EntityReferenceSelection(
-  id: 'default:paragraph',
-  label: new TranslatableMarkup('Paragraphs'),
-  group: 'default',
-  weight: 0,
-  entity_types: ['paragraph']
- )]
 class ParagraphSelection extends DefaultSelection {
   /**
    * @inheritDoc

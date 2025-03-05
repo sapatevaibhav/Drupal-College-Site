@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Drupal\Tests\search_api\Kernel\Datasource;
 
-use Drupal\Core\DependencyInjection\ContainerBuilder;
 use Drupal\Core\Language\LanguageInterface;
 use Drupal\KernelTests\KernelTestBase;
 use Drupal\node\Entity\Node;
@@ -12,8 +11,6 @@ use Drupal\search_api\Entity\Index;
 use Drupal\search_api\Entity\Server;
 use Drupal\search_api\Utility\TrackingHelper;
 use Drupal\search_api\Utility\Utility;
-use Drupal\Tests\search_api\Kernel\PostRequestIndexingTrait;
-use Drupal\Tests\search_api\Kernel\TestLogger;
 
 /**
  * Tests that changes in related entities are correctly tracked.
@@ -21,8 +18,6 @@ use Drupal\Tests\search_api\Kernel\TestLogger;
  * @group search_api
  */
 class ReferencedEntitiesReindexingTest extends KernelTestBase {
-
-  use PostRequestIndexingTrait;
 
   /**
    * {@inheritdoc}
@@ -113,19 +108,6 @@ class ReferencedEntitiesReindexingTest extends KernelTestBase {
   }
 
   /**
-   * {@inheritdoc}
-   */
-  public function register(ContainerBuilder $container): void {
-    parent::register($container);
-
-    // Set a logger that will throw exceptions when warnings/errors are logged.
-    $logger = new TestLogger('');
-    $container->set('logger.factory', $logger);
-    $container->set('logger.channel.search_api', $logger);
-    $container->set('logger.channel.search_api_db', $logger);
-  }
-
-  /**
    * Tests correct tracking of changes in referenced entities.
    *
    * @param array $child_map
@@ -188,9 +170,6 @@ class ReferencedEntitiesReindexingTest extends KernelTestBase {
       $expected_ids[] = 'entity:node/' . $this->entities[$key]->id() . ':en';
     }
     $this->assertEquals($expected_ids, $tracker->getRemainingItems());
-
-    // Make sure that no unknown items were queued for post-request indexing.
-    $this->triggerPostRequestIndexing();
   }
 
   /**

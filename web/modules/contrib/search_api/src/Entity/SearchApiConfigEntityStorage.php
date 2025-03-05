@@ -2,7 +2,6 @@
 
 namespace Drupal\search_api\Entity;
 
-use Drupal\Component\Utility\DeprecationHelper;
 use Drupal\Core\Config\Entity\ConfigEntityStorage;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\search_api\IndexInterface;
@@ -25,19 +24,8 @@ class SearchApiConfigEntityStorage extends ConfigEntityStorage {
     $entity->enforceIsNew(FALSE);
 
     $overridden_entity = $this->load($entity->id());
-    $original = DeprecationHelper::backwardsCompatibleCall(
-      \Drupal::VERSION,
-      '11.2',
-      fn () => $entity->getOriginal(),
-      fn () => $entity->original ?? NULL,
-    );
-    if ($original) {
-      DeprecationHelper::backwardsCompatibleCall(
-        \Drupal::VERSION,
-        '11.2',
-        fn () => $overridden_entity->setOriginal($original),
-        fn () => $overridden_entity->original = $original,
-      );
+    if (isset($entity->original)) {
+      $overridden_entity->original = $entity->original;
 
       // In the case of indexes, we also need to clone the fields to allow the
       // correct detection of renamed field. Conversely, we need to set the new,
@@ -45,7 +33,7 @@ class SearchApiConfigEntityStorage extends ConfigEntityStorage {
       // won't false detect field renames.
       if ($entity instanceof IndexInterface) {
         /** @var \Drupal\search_api\IndexInterface $overridden_entity */
-        $old_fields = $original->getFields();
+        $old_fields = $entity->original->getFields();
         $new_fields = $entity->getFields();
         $saved_fields = $overridden_entity->getFields();
         foreach ($entity->getFieldRenames() as $old_id => $new_id) {
@@ -75,14 +63,8 @@ class SearchApiConfigEntityStorage extends ConfigEntityStorage {
     $entity->setOriginalId($entity->id());
     $overridden_entity->setOriginalId($entity->id());
 
-    DeprecationHelper::backwardsCompatibleCall(
-      \Drupal::VERSION,
-      '11.2',
-      fn () => $entity->setOriginal(NULL) && $overridden_entity->setOriginal(NULL),
-      function () use ($entity, $overridden_entity) {
-        unset($entity->original, $overridden_entity->original);
-      },
-    );
+    unset($entity->original);
+    unset($overridden_entity->original);
   }
 
 }

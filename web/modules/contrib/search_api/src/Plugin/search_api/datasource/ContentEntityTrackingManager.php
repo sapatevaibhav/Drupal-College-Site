@@ -6,7 +6,6 @@ namespace Drupal\search_api\Plugin\search_api\datasource;
 
 use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
 use Drupal\Component\Plugin\Exception\PluginNotFoundException;
-use Drupal\Component\Utility\DeprecationHelper;
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
@@ -165,12 +164,7 @@ class ContentEntityTrackingManager {
     if (!$new) {
       // In case we don't have the original, fall back to the current entity,
       // and assume no new translations were added.
-      $original = DeprecationHelper::backwardsCompatibleCall(
-        \Drupal::VERSION,
-        '11.2',
-        fn () => $entity->getOriginal() ?: $entity,
-        fn () => $entity->original ?? $entity,
-      );
+      $original = $entity->original ?? $entity;
       $old_translations = array_keys($original->getTranslationLanguages());
     }
     $deleted_translations = array_diff($old_translations, $new_translations);
@@ -322,12 +316,7 @@ class ContentEntityTrackingManager {
       return;
     }
     /** @var \Drupal\search_api\IndexInterface $original */
-    $original = DeprecationHelper::backwardsCompatibleCall(
-      \Drupal::VERSION,
-      '11.2',
-      fn () => $index->getOriginal(),
-      fn () => $index->original ?? NULL,
-    );
+    $original = $index->original ?? NULL;
     if (!$original || !$original->status()) {
       return;
     }
