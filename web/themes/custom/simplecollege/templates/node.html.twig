@@ -14,7 +14,7 @@
     <footer class="mt-4">
       {{ author_picture }}
       <div{{ author_attributes.addClass('text-gray-600 text-sm') }}>
-        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+        {{ 'Submitted by @author on @date'|t({'@author': author_name, '@date': date}) }}
       </div>
     </footer>
   {% endif %}

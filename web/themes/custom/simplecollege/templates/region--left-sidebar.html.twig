@@ -1,9 +1,16 @@
-{#
-  Twig template for sidebar blocks (left or right).
-  Variables:
-    - content: The block content (e.g., menu, text, etc.).
-    - attributes: HTML attributes for the block wrapper.
-    - block_id: The block’s machine name (e.g., 'simplecollege_main_menu').
+{# Render the login form #}
+{{ form }}
+
+{# Add a Register button #}
+<div class="register-link">
+  <a href="{{ path('user.register') }}" class="register-button">{{ 'Create an Account'|t }}</a>
+</div>
+
+{# Twig template for sidebar blocks (left or right). #}
+{# Variables:
+   - content: The block content (e.g., menu, text, etc.).
+   - attributes: HTML attributes for the block wrapper.
+   - block_id: The block’s machine name (e.g., 'simplecollege_main_menu').
 #}
 {% set is_menu_block = block_id starts with 'simplecollege_main_menu' %}
 
@@ -17,8 +24,8 @@
     {# Generic Sidebar Content #}
     {{ content }}
     {% block stylesheets %}
-{{ attach_library('simplecollege/student-list') }}
- {% include directory ~ '/components/student-list/student-list.twig' %}
-{% endblock %}
+      {{ attach_library('simplecollege/student-list') }}
+      {% include directory ~ '/components/student-list/student-list.twig' %}
+    {% endblock %}
   {% endif %}
 </div>

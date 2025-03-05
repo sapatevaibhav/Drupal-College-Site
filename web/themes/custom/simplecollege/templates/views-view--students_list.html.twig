@@ -1,4 +1,3 @@
-
 {%
   set classes = [
     dom_id ? 'js-view-dom-id-' ~ dom_id,
@@ -17,16 +16,14 @@
 {% if custom_logo_enabled %}
   <div class="site-logo">
     <a href="{{ path('<front>') }}">
-      <img src="{{ base_path }}themes/custom/simplecollege/images/logo.png" alt="College Logo">
+      <img src="{{ base_path }}themes/custom/simplecollege/images/logo.png" alt="{{ 'College Logo'|t }}">
     </a>
   </div>
 {% endif %}
 
-
-
     {# Website Name #}
     <div class="site-name">
-      College Sit3
+      {{ 'College Site'|t }}
     </div>
 
     {# Navigation Menu #}
