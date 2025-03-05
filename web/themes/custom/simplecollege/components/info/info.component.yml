@@ -1,0 +1,17 @@
+name: College Info
+description: "A reusable college information card with a slot for dynamic content."
+category: College Components
+variables:
+  title:
+    type: string
+    default: "College Name"
+  subtitle:
+    type: string
+    default: "Department"
+  image:
+    type: string
+    default: "/themes/custom/simplecollege/screenshot.png"
+slots:
+  content:
+    type: markup
+    required: false
