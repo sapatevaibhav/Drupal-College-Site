@@ -1,0 +1,6 @@
+my.simplecontentpage:
+  title: 'Simple College'
+  description: 'Simple College is best college'
+  route_name: my.simplecontent
+  menu_name: main
+  weight: 10

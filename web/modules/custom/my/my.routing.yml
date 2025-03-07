@@ -1,0 +1,15 @@
+my.simplecontent:
+  path: '/simplecontent'
+  defaults:
+    _controller: '\Drupal\my\Controller\FirstController::simpleContent'
+    _title: 'Simple College is best college'
+  requirements:
+    _permission: 'access content'
+
+my.variable:
+  path: '/variable/{name_1}/{name_2}'
+  defaults:
+    _controller: '\Drupal\my\Controller\FirstController::variableContent'
+    _title: 'Dynamic greeting'
+  requirements:
+    _permission: 'access content'
