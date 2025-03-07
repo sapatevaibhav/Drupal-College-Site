@@ -99,6 +99,7 @@
       {% endif %}
     </aside>
   </div>
+
   {% embed 'simplecollege:chip' with {
   color: 'primary',
   dismissable: true
@@ -107,6 +108,18 @@
     Type: <span>{{ node.bundle() }}</span>
   {% endblock %}
 {% endembed %}
+
+{% embed "simplecollege:info" with {
+  title: "Sinhgad College",
+  subtitle: "Computer Science",
+  image: "/themes/custom/simplecollege/images/image1.jpeg"
+} %}
+  {% block content %}
+    <p>{{ "Accredited with NAAC A+ Grade. Offers UG and PG courses."|t }}</p>
+  {% endblock %}
+{% endembed %}
+
+
   {% if page.footer %}
     <footer role="contentinfo" class="text-center p-5 bg-gray-500 text-white border-t-4 border-yellow-400">
       {{ page.footer }}
