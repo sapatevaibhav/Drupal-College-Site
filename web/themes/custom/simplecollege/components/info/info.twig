@@ -1,0 +1,8 @@
+<div class="info">
+  <img src="{{ image }}" alt="{{ title|t }}" class="info__image">
+  <h2 class="info__title font-bold text-3xl">{{ title|t }}</h2>
+  <h3 class="info__subtitle">{{ subtitle|t }}</h3>
+  <div class="info__content">
+    {% block content %}{% endblock %}
+  </div>
+</div>

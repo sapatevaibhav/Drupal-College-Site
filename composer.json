@@ -29,6 +29,7 @@
         "drupal/profile": "^1.11",
         "drupal/rules": "^4.0",
         "drupal/search_api": "^1.37",
+        "drupal/tmgmt": "^1.17",
         "drupal/webform": "^6.3@beta",
         "drush/drush": "^13.3"
     },
