@@ -29,6 +29,7 @@ class RSVPForm extends FormBase {
       $nid = $node->id();
     }
     else {
+      // If node is not loaded set the id to 0.
       $nid = 0;
     }
 
@@ -36,7 +37,7 @@ class RSVPForm extends FormBase {
       '#title' => $this->t('Email Address'),
       '#type' => 'textfield',
       '#size' => 25,
-      '#description' => $this->t('We\'ll send updates to the email address you provide.'),
+      '#description' => $this->t("We'll send updates to the email address you provide."),
       '#required' => TRUE,
     ];
     $form['submit'] = [
@@ -65,8 +66,48 @@ class RSVPForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $email = $form_state->getValue('email');
-    $this->messenger()->addMessage($this->t('The email address %mail has been added to the list of RSVPs.', ['%mail' => $email]));
+    // $email = $form_state->getValue('email');
+    // $this->messenger()->addMessage($this->t('The email address %mail has been
+    // added to the list of RSVPs.', ['%mail' => $email]));
+    try {
+      // Begin phase 1 :  Initiate variables to save the form data.
+      // Get current user id.
+      $uid = \Drupal::currentUser()->id();
+
+      // How to get the current user object.
+      // $full_user = $this->userStorage->load($this->currentUser()->id());
+      // Obtain the values as entered in the form.
+      $email = $form_state->getValue('email');
+      $nid = $form['#nid']['#value'];
+
+      $current_time = \Drupal::time()->getRequestTime();
+
+      // Begin phase 2: Save the values to the database.
+      $query = \Drupal::database()->insert('rsvplist');
+      $query->fields([
+        'uid',
+        'nid',
+        'mail',
+        'created',
+      ]);
+
+      // Set the values to be inserted for the fields we have selected.
+      $query->values([
+        $uid,
+        $nid,
+        $email,
+        $current_time,
+      ]);
+
+      // Execute the query.
+      $query->execute();
+
+      // Begin phase 3: Display a message to the user.
+      $this->messenger()->addMessage($this->t('The email address %mail has been added to the list of RSVPs.', ['%mail' => $email]));
+    }
+    catch (\Exception $e) {
+      $this->messenger()->addMessage($this->t('There was a problem submitting your RSVP due to a database error.'));
+    }
   }
 
 }
