@@ -1,11 +1,33 @@
 <?php
 
+/**
+ * @file
+ * Contains custom page attachments and build logic.
+ */
+
+/**
+ * Implements hook_page_attachments().
+ *
+ * Attaches JavaScript settings and libraries.
+ *
+ * @param array $attachments
+ *   The attachments array to modify.
+ */
 function my_module_page_attachments(array &$attachments) {
-  // Pass the greeting to JavaScript
+  // Pass the greeting to JavaScript.
   $attachments['#attached']['drupalSettings']['my_module']['greeting'] = 'Hello from PHP!';
-  // Attach the library
+  // Attach the library.
   $attachments['#attached']['library'][] = 'my_module/my_settings';
 }
+
+/**
+ * Implements hook_page_build().
+ *
+ * Modifies the page render array.
+ *
+ * @param array $page
+ *   The page render array.
+ */
 function my_module_page_build(array &$page) {
-    $page['#markup'] .= '<button class="settings-button">Show Greeting</button>';
-  }
+  $page['#markup'] .= '<button class="settings-button">Show Greeting</button>';
+}

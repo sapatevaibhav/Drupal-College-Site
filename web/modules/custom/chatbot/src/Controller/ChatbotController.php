@@ -69,4 +69,5 @@ class ChatbotController {
     }
     return new JsonResponse(['error' => 'No teachers found for this department.'], 404);
   }
+
 }

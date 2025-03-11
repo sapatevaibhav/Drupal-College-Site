@@ -2,29 +2,32 @@
 
 /**
  * @file
- * This file demonstrates how to use hook functions.
+ * Demonstrates how to use hook functions.
  */
+
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Implements hook_cron().
-*/
+ */
+function my_cron() {
+  \Drupal::messenger()->addMessage(t('Hellowwwwwwwwwwwww'));
+  \Drupal::logger('my')->notice('Hellowwwwwwwwwwwww');
+}
 
- function my_cron() {
-    \Drupal::messenger()->addMessage(t('Hellowwwwwwwwwwwww'));
-    \Drupal::logger('my')->notice('Hellowwwwwwwwwwwww');
- }
+/**
+ * Implements hook_form_alter().
+ *
+ * The form is passed by reference so that it can be altered.
+ */
+function my_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
+  \Drupal::messenger()->addMessage(t('Form ID for this form is @form_id.', ['@form_id' => $form_id]));
 
-
- /**
-  * hook_form_alter() Here the form is passed by reference such a way we can alter it.
-  */
- function my_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
-    \Drupal::messenger()->addMessage(t('Form id for this form is @form_id: ', ['@form_id' => $form_id]));
-
-     if($form_id == 'node_article_edit_form') {
-        $form['actions']['submit']['#value'] = t('Save this article');
-     }
-     if($form_id == 'node_article_form') {
-        $form['actions']['submit']['#value'] = t('Create article');
-     }
+  if ($form_id == 'node_article_edit_form') {
+    $form['actions']['submit']['#value'] = t('Save this article');
   }
+
+  if ($form_id == 'node_article_form') {
+    $form['actions']['submit']['#value'] = t('Create article');
+  }
+}
