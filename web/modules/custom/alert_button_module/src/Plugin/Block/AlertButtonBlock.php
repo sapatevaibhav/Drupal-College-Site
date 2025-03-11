@@ -13,6 +13,7 @@ use Drupal\Core\Block\BlockBase;
  * )
  */
 class AlertButtonBlock extends BlockBase {
+
   /**
    * {@inheritdoc}
    */
@@ -28,4 +29,5 @@ class AlertButtonBlock extends BlockBase {
       ],
     ];
   }
+
 }

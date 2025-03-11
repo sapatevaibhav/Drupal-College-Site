@@ -1,0 +1,7 @@
+vaibhav_form_api.simplecontent:
+  path: '/rsvp'
+  defaults:
+    _form: '\Drupal\vaibhav_form_api\Form\RSVPForm'
+    _title: 'RSVP Now'
+  requirements:
+    _permission: 'access content'
