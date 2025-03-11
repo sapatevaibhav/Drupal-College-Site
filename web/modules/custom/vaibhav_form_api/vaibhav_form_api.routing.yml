@@ -4,4 +4,4 @@ vaibhav_form_api.simplecontent:
     _form: '\Drupal\vaibhav_form_api\Form\RSVPForm'
     _title: 'RSVP Now'
   requirements:
-    _permission: 'access content'
+    _permission: 'view rsvplist'
