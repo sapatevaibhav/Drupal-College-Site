@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Theme settings for the SimpleCollege theme.
+ */
+
 use Drupal\Core\Form\FormStateInterface;
 
 /**
@@ -29,7 +34,7 @@ function simplecollege_form_system_theme_settings_alter(&$form, FormStateInterfa
     '#description' => t('Enter the custom text for the footer.'),
   ];
 
-  // custom background for this theme
+  // Custom background for this theme.
   $form['custom_bg_color'] = [
     '#type' => 'color',
     '#title' => t('Background Color'),
