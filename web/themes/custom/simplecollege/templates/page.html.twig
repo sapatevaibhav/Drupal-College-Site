@@ -2,20 +2,48 @@
 {# {{ active_theme() }} #}
 {# {{ active_theme_path() }} #}
   <header role="banner" class="bg-gray-500 text-white p-4 border-b-4 border-yellow-400">
-    <div class="flex items-center justify-between w-full px-4">
+    <div class="container mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
       {% if custom_logo_enabled %}
-        <div class="inline-block">
+        <div class="logo-container">
           <a href="{{ path('<front>') }}">
-            <img src="{{ base_path }}themes/custom/simplecollege/images/logo.png" alt="College Logo" class="w-[100px] h-auto block">
+            <img src="{{ base_path }}themes/custom/simplecollege/images/logo.png" alt="College Logo" class="w-[100px] h-auto">
+          </a>
+        </div>
+      {% else %}
+        {# Fallback logo if custom_logo_enabled is false #}
+        <div class="logo-container">
+          <a href="{{ path('<front>') }}">
+            <img src="{{ base_path }}themes/custom/simplecollege/images/logo.png" alt="College Logo" class="w-[100px] h-auto">
           </a>
         </div>
       {% endif %}
-      <div class="text-4xl font-bold uppercase">
-        College Sit3
+      <div class="text-4xl font-bold uppercase text-center md:text-left">
+        My College
       </div>
-      <nav role="navigation" aria-labelledby="block-simplecollege-main-menu-menu" id="block-simplecollege-main-menu" class="md:flex md:items-center">
-        {{ page.menu }}
-      </nav>
+      <div class="flex flex-col md:flex-row gap-4 items-center">
+        <nav role="navigation" aria-labelledby="block-simplecollege-main-menu-menu" id="block-simplecollege-main-menu" class="w-full md:w-auto">
+          {{ page.menu }}
+        </nav>
+
+        {# User account menu #}
+        <div class="user-menu flex gap-3 items-center">
+          {% if logged_in %}
+            <a href="{{ path('user.page') }}" class="bg-yellow-500 hover:bg-yellow-600 text-gray-800 font-semibold py-2 px-4 rounded transition duration-300">
+              {{ 'My Account'|t }}
+            </a>
+            <a href="{{ path('user.logout') }}" class="bg-transparent hover:bg-gray-700 text-white font-semibold hover:text-white py-2 px-4 border border-white hover:border-transparent rounded transition duration-300">
+              {{ 'Log out'|t }}
+            </a>
+          {% else %}
+            <a href="{{ path('user.login') }}" class="bg-yellow-500 hover:bg-yellow-600 text-gray-800 font-semibold py-2 px-4 rounded transition duration-300">
+              {{ 'Log in'|t }}
+            </a>
+            <a href="{{ path('user.register') }}" class="bg-transparent hover:bg-gray-700 text-white font-semibold hover:text-white py-2 px-4 border border-white hover:border-transparent rounded transition duration-300">
+              {{ 'Create account'|t }}
+            </a>
+          {% endif %}
+        </div>
+      </div>
     </div>
   </header>
 
@@ -27,11 +55,6 @@
       {# Default carousel on front page if no specific carousel content is provided #}
       {% include directory ~ '/components/carousel/carousel.twig' with {
         'items': [
-          {
-            'image': base_path ~ 'themes/custom/simplecollege/images/image.webp',
-            'alt': 'Welcome to Simple College',
-            'caption': 'Empowering students through education'
-          },
           {
             'image': base_path ~ 'themes/custom/simplecollege/images/image1.jpeg',
             'alt': 'Campus life',
@@ -61,6 +84,11 @@
             'image': base_path ~ 'themes/custom/simplecollege/images/college.webp',
             'alt': 'College overview',
             'caption': 'Experience college life at its best'
+          },
+          {
+            'image': base_path ~ 'themes/custom/simplecollege/images/image.webp',
+            'alt': 'Welcome to Simple College',
+            'caption': 'Empowering students through education'
           }
         ],
         'id': 'homepage-carousel',
