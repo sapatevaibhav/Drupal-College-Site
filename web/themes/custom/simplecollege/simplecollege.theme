@@ -1,50 +1,50 @@
 <?php
-use Drupal\Core\Template\TwigExtension;
+
+/**
+ * @file
+ * Theme functions for the SimpleCollege theme.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
 /**
  * Implements hook_preprocess_HOOK() for page templates.
  */
-function simplecollege_preprocess_page(array &$variables)
-{
+function simplecollege_preprocess_page(array &$variables) {
   // Pass theme settings to Twig.
-  $variables["custom_logo_enabled"] = \Drupal::config(
-    "simplecollege.settings"
-  )->get("custom_logo");
-  $variables["footer_text"] = \Drupal::config("simplecollege.settings")->get(
-    "footer_text"
-  );
-  $variables["custom_bg_color"] = \Drupal::config(
-    "simplecollege.settings"
-  )->get("custom_bg_color");
+  $variables["custom_logo_enabled"] = \Drupal::config("simplecollege.settings")->get("custom_logo");
+  $variables["footer_text"] = \Drupal::config("simplecollege.settings")->get("footer_text");
+  $variables["custom_bg_color"] = \Drupal::config("simplecollege.settings")->get("custom_bg_color");
 }
 
-function simplecollege_preprocess_node(&$variables)
-{
-  if (
-    $variables["logged_in"] == true &&
-    $variables["node"]->getOwnerId() == $variables["user"]->id()
-  ) {
+/**
+ * Implements hook_preprocess_HOOK() for node templates.
+ */
+function simplecollege_preprocess_node(array &$variables) {
+  if ($variables["logged_in"] === TRUE && $variables["node"]->getOwnerId() === $variables["user"]->id()) {
     $variables["label"]["#suffix"] = "- (You are AUTHOR)";
   }
 }
 
-function simplecollege_preprocess_html(&$variables)
-{
+/**
+ * Implements hook_preprocess_HOOK() for HTML templates.
+ */
+function simplecollege_preprocess_html(array &$variables) {
   $variables["#attached"]["library"][] = "simplecollege/global-styling";
   $variables["#attached"]["library"][] = "simplecollege/student-list";
 }
 
-function simplecollege_form_alter(
-  &$form,
-  \Drupal\Core\Form\FormStateInterface $form_state,
-  $form_id
-) {
-  // Add a global class to all forms
+/**
+ * Implements hook_form_alter() to modify forms.
+ */
+function simplecollege_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
+  // Add a global class to all forms.
   $form["#attributes"]["class"][] = "custom-form";
 
   foreach ($form as $key => &$element) {
     if (is_array($element) && isset($element["#type"])) {
       switch ($element["#type"]) {
-        // Apply class to all text fields, email, password, tel, and date inputs
+        // Apply class to all text fields, email, password, tel, and date inputs.
         case "textfield":
         case "email":
         case "password":
@@ -54,12 +54,12 @@ function simplecollege_form_alter(
           $element["#attributes"]["class"][] = "custom-input";
           break;
 
-        // Apply class to all dropdowns (select elements)
+        // Apply class to all dropdowns (select elements).
         case "select":
           $element["#attributes"]["class"][] = "custom-dropdown";
           break;
 
-        // Apply class to all submit and reset buttons
+        // Apply class to all submit and reset buttons.
         case "submit":
         case "button":
         case "reset":
@@ -69,33 +69,28 @@ function simplecollege_form_alter(
     }
   }
 }
+
 /**
  * Implements hook_theme_suggestions_HOOK_alter() for node templates.
  */
-function simplecollege_theme_suggestions_node_alter(
-  array &$suggestions,
-  array $variables
-) {
+function simplecollege_theme_suggestions_node_alter(array &$suggestions, array $variables) {
   if (isset($variables["elements"]["#node"])) {
     $node = $variables["elements"]["#node"];
     // Add a suggestion based on node type.
     $suggestions[] = "node__" . $node->getType();
   }
 }
+
 /**
  * Implements hook_theme_suggestions_HOOK_alter() for views templates.
  */
-function simplecollege_theme_suggestions_views_view_alter(
-  array &$suggestions,
-  array $variables
-) {
+function simplecollege_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {
   if (!empty($variables["view"])) {
     $view = $variables["view"];
     // Add a suggestion based on the view name.
     $suggestions[] = "views_view__" . $view->id();
 
     // Add a suggestion based on view name and display ID.
-    $suggestions[] =
-      "views_view__" . $view->id() . "__" . $view->current_display;
+    $suggestions[] = "views_view__" . $view->id() . "__" . $view->current_display;
   }
 }

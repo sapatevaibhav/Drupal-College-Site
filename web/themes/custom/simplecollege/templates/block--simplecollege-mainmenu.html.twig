@@ -1,0 +1,10 @@
+{# Custom template for the main menu block #}
+<div class="text-black font-bold">
+  <nav class="flex flex-col-reverse gap-1 p-2 rounded">
+  {# Add a Register button #}
+    {# <div class="register-link">
+        <a href="{{ path('user.register') }}" class="register-button">{{ 'Create an Account'|t }}</a>
+    </div> #}
+    {{ content }}
+  </nav>
+</div>
