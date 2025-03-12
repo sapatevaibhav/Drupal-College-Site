@@ -64,7 +64,6 @@ class WeatherController extends ControllerBase {
         $weather = [
           'Temperature' => $data['current_weather']['temperature'] . ' °C',
           'Wind Speed' => $data['current_weather']['windspeed'] . ' km/h',
-          // 'Weather Code' => $data['current_weather']['weathercode'],
         ];
       }
       else {
@@ -78,7 +77,8 @@ class WeatherController extends ControllerBase {
     return [
       '#theme' => 'vaibhav_weather',
       '#weather' => $weather,
-      '#title' => 'Current Weather in Pune',
+      '#title' => $this->t('Planning a visit?'),
+      '#description' => $this->t('Current Weather at College is:'),
     ];
   }
 

@@ -5,8 +5,6 @@
  * Module file for Vaibhav Render API.
  */
 
-use Drupal\Core\Render\Element;
-
 /**
  * Implements hook_theme().
  */
@@ -16,6 +14,7 @@ function vaibhav_render_api_theme($existing, $type, $theme, $path) {
       'variables' => [
         'weather' => [],
         'title' => '',
+        'description' => '',
       ],
       'template' => 'vaibhav-weather',
     ],

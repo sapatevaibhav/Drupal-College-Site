@@ -13,6 +13,7 @@ dependencies:
     - media
     - shortcut
     - system
+    - vaibhav_form_api
 _core:
   default_config_hash: cFrlqjtkTfvY3RGccjJkPf1SGIfJ942IrxTLWAO4mgA
 id: authenticated
@@ -30,3 +31,4 @@ permissions:
   - 'use text format basic_html'
   - 'use text format webform_default'
   - 'view media'
+  - 'view rsvplist'

@@ -12,8 +12,8 @@ _core:
   default_config_hash: KWAiziL39uEzmOJEql_wbUP2RtqGceL3WM2CfxhMelE
 id: simplecollege_main_menu
 theme: simplecollege
-region: primary_menu
-weight: 0
+region: left_sidebar
+weight: -7
 provider: null
 plugin: 'system_menu_block:main'
 settings:

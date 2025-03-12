@@ -10,8 +10,8 @@ dependencies:
     - simplecollege
 id: simplecollege_mainmenu
 theme: simplecollege
-region: content
-weight: 0
+region: right_sidebar
+weight: -8
 provider: null
 plugin: 'system_menu_block:main-menu'
 settings:

@@ -1,6 +1,6 @@
 uuid: d5c02a51-8621-4a96-a585-d01e9f8637e5
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - system
@@ -10,7 +10,7 @@ _core:
   default_config_hash: eYL19CLDyinGTWYQfBD1DswWzglEotE_kHnHx3AxTXM
 id: simplecollege_powered
 theme: simplecollege
-region: sidebar_first
+region: carousel
 weight: 0
 provider: null
 plugin: system_powered_by_block

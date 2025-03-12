@@ -1,6 +1,6 @@
 uuid: 7d72a016-68d1-43f8-af8e-71878c164523
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - views.view.students_list
@@ -10,8 +10,8 @@ dependencies:
     - simplecollege
 id: simplecollege_views_block__students_list_block_1
 theme: simplecollege
-region: sidebar_first
-weight: -6
+region: left_sidebar
+weight: -8
 provider: null
 plugin: 'views_block:students_list-block_1'
 settings:

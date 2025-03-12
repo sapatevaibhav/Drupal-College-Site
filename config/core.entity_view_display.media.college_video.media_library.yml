@@ -30,5 +30,7 @@ hidden:
   created: true
   field_media_oembed_video_1: true
   field_video_label: true
+  langcode: true
   name: true
+  search_api_excerpt: true
   uid: true

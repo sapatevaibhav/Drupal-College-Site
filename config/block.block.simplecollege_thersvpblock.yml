@@ -1,0 +1,21 @@
+uuid: 60d4bf93-3984-428d-add5-3e069f49a526
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - vaibhav_form_api
+  theme:
+    - simplecollege
+id: simplecollege_thersvpblock
+theme: simplecollege
+region: right_sidebar
+weight: 0
+provider: null
+plugin: rsvp_block
+settings:
+  id: rsvp_block
+  label: 'The RSVP Block'
+  label_display: '0'
+  provider: vaibhav_form_api
+visibility: {  }

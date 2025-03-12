@@ -14,5 +14,7 @@ bundle: user
 mode: compact
 content: {  }
 hidden:
+  langcode: true
   member_for: true
   role_selection_profiles: true
+  search_api_excerpt: true

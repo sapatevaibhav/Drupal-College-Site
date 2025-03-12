@@ -11,8 +11,8 @@ dependencies:
     - simplecollege
 id: simplecollege_newtowebsite
 theme: simplecollege
-region: sidebar_first
-weight: -8
+region: right_sidebar
+weight: -7
 provider: null
 plugin: 'block_content:ff3fc073-aaa0-4727-a56c-2ab185aa863b'
 settings:

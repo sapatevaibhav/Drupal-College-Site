@@ -1,6 +1,6 @@
 uuid: f695f69d-cf68-4b37-b0a5-ed44adf89945
 langcode: en
-status: true
+status: false
 dependencies:
   theme:
     - simplecollege
@@ -8,7 +8,7 @@ _core:
   default_config_hash: nGE3EoPQQaQCuqTUtZgw0-KIzmrqdKDzdNQf2JyPUt4
 id: simplecollege_primary_local_tasks
 theme: simplecollege
-region: highlighted
+region: carousel
 weight: -5
 provider: null
 plugin: local_tasks_block

@@ -1,6 +1,6 @@
 uuid: afea7d11-5a6d-4a4c-82a5-9e85adf2ad91
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - system
@@ -10,7 +10,7 @@ _core:
   default_config_hash: VhBzWb7lMRtIOg9G7VSw_0uopi-7zXeHq4vXqqV1HFE
 id: simplecollege_breadcrumbs
 theme: simplecollege
-region: breadcrumb
+region: carousel
 weight: 0
 provider: null
 plugin: system_breadcrumb_block

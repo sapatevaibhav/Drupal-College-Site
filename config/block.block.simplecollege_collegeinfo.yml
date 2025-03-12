@@ -11,8 +11,8 @@ dependencies:
     - simplecollege
 id: simplecollege_collegeinfo
 theme: simplecollege
-region: highlighted
-weight: -8
+region: content
+weight: -9
 provider: null
 plugin: 'block_content:9b1b9349-d3ba-42af-8941-ea68418f826f'
 settings:

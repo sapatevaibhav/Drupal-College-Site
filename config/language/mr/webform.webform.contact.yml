@@ -1,0 +1,6 @@
+title: संपर्क
+settings:
+  confirmation_message: 'तुमचा संदेश पाठवला गेला'
+handlers:
+  email_notification:
+    label: 'ई-मेल सुचना देणे'

@@ -10,7 +10,7 @@ _core:
   default_config_hash: 0gq3VPg-_UM69FCCWurLFIrrnIjC2HLKhwo9iQNtcUo
 id: simplecollege_syndicate
 theme: simplecollege
-region: sidebar_first
+region: carousel
 weight: 0
 provider: null
 plugin: node_syndicate_block

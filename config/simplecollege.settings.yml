@@ -1,0 +1,14 @@
+features:
+  node_user_picture: true
+  comment_user_picture: true
+  comment_user_verification: 1
+  favicon: 0
+logo:
+  use_default: 0
+  path: 'public://qed_0.png'
+favicon:
+  use_default: 0
+  path: ''
+custom_logo: 0
+footer_text: 'College website by Vaibhav...!'
+custom_bg_color: '#000000'

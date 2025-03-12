@@ -1,6 +1,6 @@
 uuid: e20610ec-b9e6-48df-93cf-770865cf306a
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - views.view.social_medias
@@ -10,8 +10,8 @@ dependencies:
     - simplecollege
 id: simplecollege_social_medias
 theme: simplecollege
-region: sidebar_first
-weight: 0
+region: footer
+weight: -8
 provider: null
 plugin: 'views_block:social_medias-block_1'
 settings:

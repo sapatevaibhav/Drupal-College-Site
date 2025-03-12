@@ -1,6 +1,6 @@
 uuid: d273820d-26f4-42c1-a19b-6551ea07066e
 langcode: en
-status: true
+status: false
 dependencies:
   theme:
     - simplecollege
@@ -8,7 +8,7 @@ _core:
   default_config_hash: Q9_2whdOj1YIomfvsIfopROW4FT_X5pY0DjdOiOaQ5U
 id: simplecollege_primary_admin_actions
 theme: simplecollege
-region: highlighted
+region: carousel
 weight: -7
 provider: null
 plugin: local_actions_block
