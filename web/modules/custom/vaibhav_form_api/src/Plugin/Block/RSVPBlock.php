@@ -8,6 +8,7 @@ use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Access\AccessResult;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+use Drupal\Core\Config\ConfigFactoryInterface;
 
 /**
  * Provides a 'RSVP' Block.
@@ -27,6 +28,13 @@ class RSVPBlock extends BlockBase implements ContainerFactoryPluginInterface {
   protected $formBuilder;
 
   /**
+   * The config factory service.
+   *
+   * @var \Drupal\Core\Config\ConfigFactoryInterface
+   */
+  protected $configFactory;
+
+  /**
    * Constructs an RSVPBlock object.
    *
    * @param array $configuration
@@ -37,10 +45,13 @@ class RSVPBlock extends BlockBase implements ContainerFactoryPluginInterface {
    *   The plugin implementation definition.
    * @param \Drupal\Core\Form\FormBuilderInterface $formBuilder
    *   The form builder service.
+   * @param \Drupal\Core\Config\ConfigFactoryInterface $configFactory
+   *   The configuration factory service.
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, FormBuilderInterface $formBuilder) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, FormBuilderInterface $formBuilder, ConfigFactoryInterface $configFactory) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->formBuilder = $formBuilder;
+    $this->configFactory = $configFactory;
   }
 
   /**
@@ -51,7 +62,8 @@ class RSVPBlock extends BlockBase implements ContainerFactoryPluginInterface {
       $configuration,
       $plugin_id,
       $plugin_definition,
-      $container->get('form_builder')
+      $container->get('form_builder'),
+      $container->get('config.factory')
     );
   }
 
@@ -59,6 +71,15 @@ class RSVPBlock extends BlockBase implements ContainerFactoryPluginInterface {
    * {@inheritdoc}
    */
   public function build() {
+    $config = $this->configFactory->get('vaibhav_form_api.settings');
+
+    // Check if RSVP functionality is enabled.
+    if (!$config->get('rsvp_enabled')) {
+      return [
+        '#markup' => $this->t('RSVP functionality is currently disabled.'),
+      ];
+    }
+
     return $this->formBuilder->getForm('Drupal\vaibhav_form_api\Form\RSVPForm');
   }
 

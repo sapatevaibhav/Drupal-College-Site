@@ -14,6 +14,7 @@ use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\Core\Ajax\MessageCommand;
 use Drupal\Core\Ajax\InvokeCommand;
+use Drupal\Core\Config\ConfigFactoryInterface;
 
 /**
  * A form to collect email addresses for RSVPs.
@@ -56,14 +57,29 @@ class RSVPForm extends FormBase {
   protected $currentUser;
 
   /**
+   * The config factory.
+   *
+   * @var \Drupal\Core\Config\ConfigFactoryInterface
+   */
+  protected $configFactory;
+
+  /**
    * Constructs an RSVPForm object.
    */
-  public function __construct(RouteMatchInterface $route_match, EmailValidatorInterface $email_validator, Connection $database, Time $time, AccountProxyInterface $current_user) {
+  public function __construct(
+    RouteMatchInterface $route_match,
+    EmailValidatorInterface $email_validator,
+    Connection $database,
+    Time $time,
+    AccountProxyInterface $current_user,
+    ConfigFactoryInterface $config_factory,
+  ) {
     $this->routeMatch = $route_match;
     $this->emailValidator = $email_validator;
     $this->database = $database;
     $this->time = $time;
     $this->currentUser = $current_user;
+    $this->configFactory = $config_factory;
   }
 
   /**
@@ -75,7 +91,8 @@ class RSVPForm extends FormBase {
       $container->get('email.validator'),
       $container->get('database'),
       $container->get('datetime.time'),
-      $container->get('current_user')
+      $container->get('current_user'),
+      $container->get('config.factory')
     );
   }
 
@@ -92,6 +109,21 @@ class RSVPForm extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $node = $this->routeMatch->getParameter('node');
     $nid = $node ? $node->id() : 0;
+
+    // Get configuration.
+    $config = $this->configFactory()->get('vaibhav_form_api.settings');
+
+    // Check if RSVP functionality is enabled at all.
+    if (!$config->get('rsvp_enabled')) {
+      return [
+        '#markup' => $this->t('RSVP functionality is currently disabled.'),
+      ];
+    }
+
+    $form['message'] = [
+      '#type' => 'markup',
+      '#markup' => '<p>' . $config->get('rsvp_display_message') . '</p>',
+    ];
 
     $form['email'] = [
       '#type' => 'email',
