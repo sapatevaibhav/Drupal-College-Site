@@ -10,6 +10,10 @@ use Drupal\Component\Datetime\Time;
 use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\Component\Utility\EmailValidatorInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\Core\Ajax\AjaxResponse;
+use Drupal\Core\Ajax\ReplaceCommand;
+use Drupal\Core\Ajax\MessageCommand;
+use Drupal\Core\Ajax\InvokeCommand;
 
 /**
  * A form to collect email addresses for RSVPs.
@@ -90,20 +94,36 @@ class RSVPForm extends FormBase {
     $nid = $node ? $node->id() : 0;
 
     $form['email'] = [
+      '#type' => 'email',
       '#title' => $this->t('Email Address'),
-      '#type' => 'textfield',
       '#size' => 25,
       '#description' => $this->t("We'll send updates to the email address you provide."),
       '#required' => TRUE,
     ];
+
     $form['submit'] = [
       '#type' => 'submit',
       '#value' => $this->t('RSVP'),
+      '#ajax' => [
+        'callback' => '::ajaxSubmit',
+        'wrapper' => 'rsvp-form-wrapper',
+        'effect' => 'fade',
+        'progress' => [
+          'type' => 'throbber',
+          'message' => $this->t('Processing submission...'),
+        ],
+      ],
     ];
-    $form['#nid'] = [
+
+    // Store the node ID as a hidden value.
+    $form['nid'] = [
       '#type' => 'hidden',
       '#value' => $nid,
     ];
+
+    $form['#prefix'] = '<div id="rsvp-form-wrapper">';
+    $form['#suffix'] = '</div>';
+
     return $form;
   }
 
@@ -120,23 +140,42 @@ class RSVPForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function submitForm(array &$form, FormStateInterface $form_state) {
-    try {
-      $uid = $this->currentUser->id();
-      $email = $form_state->getValue('email');
-      $nid = $form['#nid']['#value'];
-      $current_time = $this->time->getRequestTime();
+  public function ajaxSubmit(array &$form, FormStateInterface $form_state) {
+    $response = new AjaxResponse();
 
+    if ($form_state->hasAnyErrors()) {
+      // Show error messages dynamically.
+      $response->addCommand(new MessageCommand($this->t('There were errors in the form. Please fix them and try again.'), NULL, ['type' => 'error']));
+      return $response;
+    }
+
+    try {
       $this->database->insert('rsvplist')
-        ->fields(['uid', 'nid', 'mail', 'created'])
-        ->values([$uid, $nid, $email, $current_time])
+        ->fields([
+          'mail' => $form_state->getValue('email'),
+          'nid' => $form_state->getValue('nid'),
+          'uid' => $this->currentUser->id(),
+          'created' => $this->time->getRequestTime(),
+        ])
         ->execute();
 
-      $this->messenger()->addMessage($this->t('The email address %mail has been added to the list of RSVPs.', ['%mail' => $email]));
+      // Replace form with thank you message.
+      $response->addCommand(new ReplaceCommand('#rsvp-form-wrapper', '<div class="rsvp-thank-you">' . $this->t('Thank you for your RSVP!') . '</div>'));
+
+      $response->addCommand(new InvokeCommand(NULL, 'scrollTo', [0, 'window.scrollY']));
     }
     catch (\Exception $e) {
-      $this->messenger()->addMessage($this->t('There was a problem submitting your RSVP due to a database error.'));
+      $response->addCommand(new MessageCommand($this->t('Error saving RSVP. Try again later.'), NULL, ['type' => 'error']));
     }
+
+    return $response;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function submitForm(array &$form, FormStateInterface $form_state) {
+    // Leave this empty since AJAX submission is handled separately.
   }
 
 }
