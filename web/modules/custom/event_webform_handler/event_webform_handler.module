@@ -1,0 +1,42 @@
+<?php
+
+/**
+ * @file
+ * Creates a new event node from a webform submission.
+ */
+
+use Drupal\node\Entity\Node;
+use Drupal\webform\WebformSubmissionInterface;
+
+/**
+ * Implements hook_webform_submission_insert().
+ */
+function event_webform_handler_webform_submission_insert(WebformSubmissionInterface $submission) {
+  // Get the webform ID.
+  $webform_id = $submission->getWebform()->id();
+
+  // Only process submissions from the event creation form.
+  if ($webform_id === 'event_creation_form') {
+    $values = $submission->getData();
+
+    // Create a new Event node.
+    $node = Node::create([
+    // Ensure this matches your content type machine name.
+      'type' => 'event',
+    // Event name.
+      'title' => $values['name'],
+    // Event Address.
+      'field_event_address' => $values['email'],
+    // Phone Number.
+      'field_phone' => $values['phone'],
+    // Convert date to timestamp.
+      'field_event_date' => strtotime($values['event_date']),
+    // Event Information.
+      'field_event_information' => $values['comments'],
+    // Published.
+      'status' => 1,
+    ]);
+
+    $node->save();
+  }
+}

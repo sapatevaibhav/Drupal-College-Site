@@ -1,0 +1,7 @@
+name: 'Event Webform Handler'
+type: module
+description: 'Creates an event node from a webform submission.'
+core_version_requirement: ^10 || ^11
+package: Custom
+dependencies:
+  - drupal:webform

@@ -20,11 +20,14 @@ function simplecollege_preprocess_page(array &$variables) {
 /**
  * Implements hook_preprocess_HOOK() for node templates.
  */
+/*
 function simplecollege_preprocess_node(array &$variables) {
-  if ($variables["logged_in"] === TRUE && $variables["node"]->getOwnerId() === $variables["user"]->id()) {
-    $variables["label"]["#suffix"] = "- (You are AUTHOR)";
-  }
+if ($variables["logged_in"] === TRUE && $variables["node"]->getOwnerId()
+=== $variables["user"]->id()) {
+$variables["label"]["#suffix"] = "- (You are AUTHOR)";
 }
+}
+ */
 
 /**
  * Implements hook_preprocess_HOOK() for HTML templates.
@@ -44,7 +47,8 @@ function simplecollege_form_alter(array &$form, FormStateInterface $form_state, 
   foreach ($form as $key => &$element) {
     if (is_array($element) && isset($element["#type"])) {
       switch ($element["#type"]) {
-        // Apply class to all text fields, email, password, tel, and date inputs.
+        // Apply class to all text fields, email, password,
+        // tel, and date inputs.
         case "textfield":
         case "email":
         case "password":

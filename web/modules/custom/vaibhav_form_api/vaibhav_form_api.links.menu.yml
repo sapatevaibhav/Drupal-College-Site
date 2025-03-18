@@ -4,3 +4,10 @@ vaibhav_form_api.admin_settings:
   parent: system.admin_config_content
   route_name: vaibhav_form_api.admin_settings
   weight: 10
+
+vaibhav_form_api.report:
+  title: 'RSVP Report'
+  description: 'View RSVP report'
+  parent: system.admin_reports
+  route_name: vaibhav_form_api.report
+  weight: -5

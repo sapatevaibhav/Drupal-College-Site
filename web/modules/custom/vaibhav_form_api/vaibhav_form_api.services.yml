@@ -1,0 +1,4 @@
+services:
+  rsvplist.enabler:
+    class: Drupal\vaibhav_form_api\EnablerService
+    arguments: ['@database']

@@ -1,0 +1,7 @@
+<article class="bg-white shadow-md rounded-lg p-4 m-4 transition-transform transform hover:scale-105">
+  <a href="{{ url }}" class="block">
+    <h2 class="text-xl font-bold text-blue-600">{{ label }}</h2>
+  <p class="text-gray-600 mt-2"><strong>Date:</strong> {{ node.field_event_date.value|date("F j, Y") }}</p>
+  <p class="text-gray-500"><strong>Location:</strong> {{ node.field_event_address.value }}</p>
+  </a>
+</article>

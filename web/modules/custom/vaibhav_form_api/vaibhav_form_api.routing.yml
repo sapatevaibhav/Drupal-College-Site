@@ -13,3 +13,11 @@ vaibhav_form_api.admin_settings:
     _title: 'RSVP List Settings'
   requirements:
     _permission: 'administer rsvplist'
+
+vaibhav_form_api.report:
+  path: '/admin/reports/rsvp'
+  defaults:
+    _controller: '\Drupal\vaibhav_form_api\Controller\ReportController::report'
+    _title: 'RSVP Report'
+  requirements:
+    _permission: 'access rsvplist report'

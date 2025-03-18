@@ -2,11 +2,11 @@
 
   {{ title_prefix }}
   {% if label and not page %}
-    <marquee>
+    {# <marquee> #}
       <h2{{ title_attributes.addClass('text-2xl font-bold') }}>
         <a href="{{ url }}" rel="bookmark" class="text-blue-600 hover:underline">{{ label }}</a>
       </h2>
-    </marquee>
+    {# </marquee> #}
   {% endif %}
   {{ title_suffix }}
 

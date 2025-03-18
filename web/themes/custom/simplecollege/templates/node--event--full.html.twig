@@ -1,0 +1,25 @@
+{# Event Node Template #}
+<article class="max-w-3xl mx-auto bg-white shadow-lg rounded-2xl p-6 mt-6">
+    <header class="border-b pb-4 mb-4">
+        <h1 class="text-3xl font-bold text-gray-900">{{ node.title.value }}</h1>
+        <p class="text-sm text-gray-600 mt-1">
+            📅 Event Date: {{ node.field_date.value|first|date("F j, Y") }}
+        </p>
+    </header>
+
+    <div class="mb-6">
+        <h2 class="text-xl font-semibold text-gray-800">Event Details</h2>
+        <p class="text-gray-700 mt-2">{{ node.field_event_information.value }}</p>
+    </div>
+
+    <div class="bg-gray-100 p-4 rounded-lg mb-6">
+        <h3 class="text-lg font-semibold text-gray-800">Location & Contact</h3>
+        <p class="text-gray-700">📍 Address: {{ node.field_event_address.value }}</p>
+        {% if node.field_phone.value %}
+            <p class="text-gray-700">📞 Phone: {{ node.field_phone_number.value }}</p>
+        {% endif %}
+    </div>
+    <footer class="mt-6 text-center">
+        <a href="/events" class="text-blue-600 hover:underline">← Back to Events</a>
+    </footer>
+</article>
