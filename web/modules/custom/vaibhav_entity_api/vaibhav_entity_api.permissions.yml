@@ -1,0 +1,3 @@
+administer custom_profile:
+  title: 'Administer custom profiles'
+  restrict access: true

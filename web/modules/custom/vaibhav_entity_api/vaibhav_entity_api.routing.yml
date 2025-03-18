@@ -1,0 +1,7 @@
+entity.custom_profile.settings:
+  path: 'admin/structure/custom-profile'
+  defaults:
+    _form: '\Drupal\vaibhav_entity_api\Form\CustomProfileSettingsForm'
+    _title: 'Custom Profile'
+  requirements:
+    _permission: 'administer custom_profile'
