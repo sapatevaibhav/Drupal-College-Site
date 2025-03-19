@@ -20,6 +20,7 @@ use Drupal\vaibhav_entity_api\CustomProfileInterface;
  * @ContentEntityType(
  *   id = "custom_profile",
  *   label = @Translation("Custom Profile"),
+ *
  *   label_collection = @Translation("Custom Profiles"),
  *   label_singular = @Translation("custom profile"),
  *   label_plural = @Translation("custom profiles"),
@@ -30,6 +31,7 @@ use Drupal\vaibhav_entity_api\CustomProfileInterface;
  *   handlers = {
  *     "list_builder" = "Drupal\vaibhav_entity_api\CustomProfileListBuilder",
  *     "views_data" = "Drupal\views\EntityViewsData",
+ *     "access" = "Drupal\vaibhav_entity_api\CustomProfileAccessControlHandler",
  *     "form" = {
  *       "add" = "Drupal\vaibhav_entity_api\Form\CustomProfileForm",
  *       "edit" = "Drupal\vaibhav_entity_api\Form\CustomProfileForm",
@@ -106,6 +108,10 @@ final class CustomProfile extends RevisionableContentEntityBase implements Custo
       ->setTranslatable(TRUE)
       ->setLabel(t('Label'))
       ->setRequired(TRUE)
+      // Inbuilt constraint to check for uniqueness.
+      ->addConstraint('UniqueField')
+      // Custom constraint to check for unique int.
+      ->addConstraint('UniqueInteger')
       ->setSetting('max_length', 255)
       ->setDisplayOptions('form', [
         'type' => 'string_textfield',
