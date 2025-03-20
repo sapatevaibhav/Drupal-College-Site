@@ -22,6 +22,7 @@ dependencies:
     - system
     - taxonomy
     - toolbar
+    - vaibhav_entity_api
 _core:
   default_config_hash: e_wG1u7SrGaJbY2-Szgbgl-c8T3kdirU3uTNq2c_QJQ
 id: content_editor
@@ -35,6 +36,7 @@ permissions:
   - 'access files overview'
   - 'access media overview'
   - 'access toolbar'
+  - 'add custom_profile'
   - 'administer nodes'
   - 'administer url aliases'
   - 'bypass node access'
@@ -80,6 +82,7 @@ permissions:
   - 'edit any page content'
   - 'edit any student content'
   - 'edit any teacher content'
+  - 'edit custom_profile'
   - 'edit own abb content'
   - 'edit own article content'
   - 'edit own comments'
@@ -104,6 +107,7 @@ permissions:
   - 'view all media revisions'
   - 'view all revisions'
   - 'view article revisions'
+  - 'view custom_profile'
   - 'view demo revisions'
   - 'view department revisions'
   - 'view own unpublished content'

@@ -1,0 +1,59 @@
+uuid: c5509574-020c-49ee-b64c-d849f0ba180c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.event.field_date
+    - field.field.node.event.field_event_address
+    - field.field.node.event.field_event_information
+    - field.field.node.event.field_phone_number
+    - node.type.event
+  module:
+    - datetime
+    - user
+id: node.event.default
+targetEntityType: node
+bundle: event
+mode: default
+content:
+  field_date:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_event_address:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_event_information:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_phone_number:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

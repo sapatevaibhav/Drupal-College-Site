@@ -13,7 +13,7 @@ bundle: social
 label: icon
 description: 'Add the social media icon'
 required: true
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

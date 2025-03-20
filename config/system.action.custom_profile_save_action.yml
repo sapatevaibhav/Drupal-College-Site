@@ -1,0 +1,13 @@
+uuid: d36649e8-7779-4f14-9fbb-08769def1c95
+langcode: en
+status: true
+dependencies:
+  module:
+    - vaibhav_entity_api
+_core:
+  default_config_hash: ztf8GoDp-Tib-5shkZRV2RqSPeangDUosHWwfcE93w0
+id: custom_profile_save_action
+label: 'Save custom profiles'
+type: custom_profile
+plugin: 'entity:save_action:custom_profile'
+configuration: {  }
