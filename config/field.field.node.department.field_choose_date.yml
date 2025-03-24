@@ -1,0 +1,21 @@
+uuid: e30b6c75-51e9-41ad-9262-c30226da2938
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_choose_date
+    - node.type.department
+  module:
+    - vaibhav_field_api
+id: node.department.field_choose_date
+field_name: field_choose_date
+entity_type: node
+bundle: department
+label: 'Choose date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: calendar_field

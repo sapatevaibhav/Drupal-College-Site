@@ -73,8 +73,10 @@ module:
   user: 0
   vaibhav_config_entity: 0
   vaibhav_entity_api: 0
+  vaibhav_field_api: 0
   vaibhav_form_api: 0
   vaibhav_render_api: 0
+  vaibhav_state_api: 0
   views_ui: 0
   webform: 0
   webform_access: 0

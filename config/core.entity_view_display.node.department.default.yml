@@ -3,17 +3,26 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.department.field_choose_date
     - field.field.node.department.field_department_description
     - field.field.node.department.field_department_name
     - field.field.node.department.field_teachers_in_department
     - node.type.department
   module:
     - user
+    - vaibhav_field_api
 id: node.department.default
 targetEntityType: node
 bundle: department
 mode: default
 content:
+  field_choose_date:
+    type: calendar_formatter
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 104
+    region: content
   field_department_description:
     type: basic_string
     label: above

@@ -7,7 +7,4 @@ fetch:
   url: null
   max_attempts: 2
   timeout: 30
-notification:
-  emails:
-    - admin@example.com
-  threshold: all
+notification: '0'
