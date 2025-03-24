@@ -1,4 +1,4 @@
-name: 'vaibhav_config_api'
+name: 'Configuration API'
 type: module
 description: 'A module for Configuration API in drupal'
 package: Vaibhav

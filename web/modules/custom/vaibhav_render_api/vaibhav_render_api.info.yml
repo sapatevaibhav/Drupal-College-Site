@@ -2,4 +2,4 @@ name: 'Vaibhav Render API'
 type: module
 description: 'Fetches and displays weather information using Open-Meteo API.'
 core_version_requirement: ^11
-package: Custom
+package: Vaibhav  

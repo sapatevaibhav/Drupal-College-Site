@@ -1,4 +1,4 @@
-name: 'vaibhav_config_entity'
+name: 'Config Entity'
 type: module
 description: 'Custom module for Configuration APU'
 package: Vaibhav
