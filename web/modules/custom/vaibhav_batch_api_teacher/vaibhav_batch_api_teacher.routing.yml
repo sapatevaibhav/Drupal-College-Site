@@ -1,0 +1,15 @@
+vaibhav_batch_api_teacher.form:
+  path: '/teacher-import'
+  defaults:
+    _form: '\Drupal\vaibhav_batch_api_teacher\Form\TeacherImportForm'
+    _title: 'Import Teachers'
+  requirements:
+    _permission: 'import teacher csv'
+
+vaibhav_batch_api_teacher.batch_actions:
+  path: '/vaibhav-batch'
+  defaults:
+    _controller: '\Drupal\vaibhav_batch_api_teacher\Controller\BatchActionsController::batchActions'
+    _title: 'Batch Operations'
+  requirements:
+    _permission: 'import teacher csv'

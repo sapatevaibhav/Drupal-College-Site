@@ -1,0 +1,7 @@
+name: 'Teacher Batch'
+type: module
+description: 'Imports teacher nodes from CSV via Batch API'
+package: Vaibhav
+core_version_requirement: ^10 || ^11
+dependencies:
+  - drupal:jsonapi

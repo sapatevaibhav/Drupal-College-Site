@@ -1,0 +1,5 @@
+vaibhav_articles.upload_form:
+  title: 'Article CSV Upload'
+  description: 'Bulk upload article nodes via CSV'
+  parent: 'system.admin_config'
+  route_name: vaibhav_articles.upload_form

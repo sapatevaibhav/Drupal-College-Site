@@ -1,0 +1,7 @@
+vaibhav_articles.upload_form:
+  path: '/article-import'
+  defaults:
+    _form: '\Drupal\vaibhav_articles\Form\ArticleUploadForm'
+    _title: 'Article CSV Upload'
+  requirements:
+    _permission: 'administer article upload'

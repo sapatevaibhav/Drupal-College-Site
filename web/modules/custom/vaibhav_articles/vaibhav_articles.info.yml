@@ -1,0 +1,7 @@
+name: 'Articles batch generate'
+type: module
+description: 'Bulk article creation using Batch API'
+package: Vaibhav
+core_version_requirement: ^10 || ^11
+dependencies:
+  - drupal:node

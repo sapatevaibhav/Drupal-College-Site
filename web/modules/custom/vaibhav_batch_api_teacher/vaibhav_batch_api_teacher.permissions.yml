@@ -1,0 +1,3 @@
+import teacher csv:
+  title: 'Import Teacher CSV'
+  description: 'Allows users to import teachers from a CSV file'
