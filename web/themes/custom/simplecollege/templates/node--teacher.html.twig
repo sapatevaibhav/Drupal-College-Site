@@ -1,0 +1,68 @@
+<article{{ attributes.addClass(classes) }}>
+  <div class="max-w-4xl mx-auto px-6 py-10 bg-white shadow-lg rounded-lg">
+    {# Profile Header Section #}
+    <header class="flex flex-col items-center text-center space-y-4 mb-6">
+      {# Optional Profile Image #}
+      {% if content.field_profile_image|render %}
+        <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-blue-500">
+          {{ content.field_profile_image }}
+        </div>
+      {% endif %}
+
+      <h1 class="text-3xl font-bold text-gray-900">{{ label }}</h1>
+
+      {% if content.field_department|render %}
+        <p class="text-lg text-blue-600 font-medium">{{ content.field_department }}</p>
+      {% endif %}
+
+      {% if content.field_subject_specialization|render %}
+        <p class="text-sm text-gray-600 italic">
+          <span class="font-medium">Specialization:</span> {{ content.field_subject_specialization }}
+        </p>
+      {% endif %}
+    </header>
+
+    {# Main Content Section #}
+    <div class="grid md:grid-cols-3 gap-8">
+      {# Biography Section #}
+      <div class="md:col-span-2 space-y-6">
+        {% if content.field_biography|render %}
+          <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+            <h2 class="text-xl font-semibold text-gray-800">Biography</h2>
+            <div class="prose max-w-none text-gray-700">
+              {{ content.field_biography }}
+            </div>
+          </div>
+        {% endif %}
+
+        {# Other Fields Excluding Already Rendered Ones #}
+        {{ content|without(
+          'field_biography',
+          'field_department',
+          'field_subject_specialization',
+          'field_social_media_links',
+          'field_profile_image'
+        ) }}
+      </div>
+
+      {# Sidebar Section (Contact & Social Media) #}
+      <div class="space-y-6">
+        {% if content.field_social_media_links|render %}
+          <div class="bg-gray-100 p-6 rounded-lg shadow-sm">
+            <h2 class="text-xl font-semibold text-gray-800">Connect</h2>
+            <div class="flex flex-wrap gap-3 mt-4">
+              {% for item in node.field_social_media_links %}
+                {% if item.uri %}
+                  {% set url = item.uri|replace({'internal:': base_path}) %}
+                  <a href="{{ url }}" class="text-blue-600 hover:text-blue-800 flex items-center space-x-2" target="_blank" rel="noopener">
+                    <span>🔗</span> <span>{{ item.title ? item.title : url|replace({'https://': '', 'http://': ''}) }}</span>
+                  </a>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</article>

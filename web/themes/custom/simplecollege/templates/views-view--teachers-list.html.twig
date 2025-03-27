@@ -1,0 +1,78 @@
+{%
+  set classes = [
+    'teachers-list-view',
+    'view-teachers',
+    'max-w-screen-xl',
+    'mx-auto',
+    'px-4',
+    'py-8',
+    dom_id ? 'js-view-dom-id-' ~ dom_id,
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {% if title %}
+    <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">{{ title }}</h2>
+  {% endif %}
+  {{ title_suffix }}
+
+  {% if header %}
+    <div class="bg-white rounded-lg shadow-md p-4 mb-6">
+      {{ header }}
+    </div>
+  {% endif %}
+
+  {% if exposed %}
+    <div class="bg-gray-50 p-4 rounded-lg mb-6">
+      {{ exposed }}
+    </div>
+  {% endif %}
+
+  {% if attachment_before %}
+    <div class="mb-6">
+      {{ attachment_before }}
+    </div>
+  {% endif %}
+
+  {% if rows %}
+    <div class="teachers-list-content bg-white rounded-lg shadow-md overflow-hidden">
+      <div class="divide-y divide-gray-200">
+        {{ rows }}
+      </div>
+    </div>
+  {% elseif empty %}
+    <div class="bg-gray-50 p-8 rounded-lg text-center text-gray-600">
+      {{ empty }}
+    </div>
+  {% endif %}
+
+  {% if pager %}
+    <div class="flex justify-center mt-8">
+      {{ pager }}
+    </div>
+  {% endif %}
+
+  {% if attachment_after %}
+    <div class="mt-6">
+      {{ attachment_after }}
+    </div>
+  {% endif %}
+
+  {% if more %}
+    <div class="text-center mt-6">
+      {{ more }}
+    </div>
+  {% endif %}
+
+  {% if footer %}
+    <div class="bg-white rounded-lg shadow-md p-4 mt-8">
+      {{ footer }}
+    </div>
+  {% endif %}
+
+  {% if feed_icons %}
+    <div class="flex justify-end mt-4">
+      {{ feed_icons }}
+    </div>
+  {% endif %}
+</div>
