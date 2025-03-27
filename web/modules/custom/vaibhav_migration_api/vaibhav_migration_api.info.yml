@@ -1,0 +1,9 @@
+name: 'Vaibhav Migration API'
+type: module
+description: 'Explores the Drupal Migration API by importing student data from a CSV file.'
+core_version_requirement: ^11
+package: 'Vaibhav'
+dependencies:
+  - drupal:migrate
+  - drupal:migrate_tools
+  - drupal:migrate_plus

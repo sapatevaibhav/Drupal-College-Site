@@ -1,0 +1,29 @@
+id: vaibhav_students
+label: 'Import Students from CSV'
+migration_group: vaibhav_migrations
+source:
+  plugin: csv
+  path: modules/custom/vaibhav_migration_api/migrations/students.csv
+  delimiter: ','
+  enclosure: '"'
+  header_row_count: 1
+  ids:
+    - id
+process:
+  uid: id
+  name: name
+  mail: email
+  field_course: course
+  status:
+    plugin: default_value
+    default_value: 1
+  pass:
+    plugin: default_value
+    default_value: pass
+destination:
+  plugin: entity:user
+  default_bundle: student
+dependencies:
+  enforced:
+    module:
+      - vaibhav_migration_api
