@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Contains vaibhav_cache_api.module.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+
+/**
+ * Implements hook_entity_insert().
+ */
+function vaibhav_cache_api_entity_insert(EntityInterface $entity) {
+  if ($entity->getEntityTypeId() == 'node' && $entity->bundle() == 'event') {
+    \Drupal::cache()->invalidate('vaibhav_cache_api.upcoming_events');
+  }
+}

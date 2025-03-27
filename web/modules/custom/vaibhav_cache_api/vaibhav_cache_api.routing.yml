@@ -1,0 +1,7 @@
+vaibhav_cache_api.refresh_cache:
+  path: '/vaibhav-cache/refresh'
+  defaults:
+    _controller: '\Drupal\vaibhav_cache_api\Controller\CacheController::refreshCache'
+    _title: 'Refresh Cache'
+  requirements:
+    _permission: 'access content'

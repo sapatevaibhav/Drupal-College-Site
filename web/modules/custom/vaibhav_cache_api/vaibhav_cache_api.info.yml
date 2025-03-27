@@ -1,0 +1,7 @@
+name: 'Vaibhav Cache API'
+type: module
+description: 'Exploring Drupal Cache API with caching timestamp in blocks.'
+package: 'Vaibhav'
+core_version_requirement: ^11
+dependencies:
+  - drupal:node
