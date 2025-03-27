@@ -1,0 +1,10 @@
+services:
+  vaibhav_event_api.event_dispatcher_service:
+    class: 'Drupal\vaibhav_event_api\Service\EventDispatcherService'
+    arguments: ['@event_dispatcher']
+
+  vaibhav_event_api.event_subscriber:
+    class: 'Drupal\vaibhav_event_api\EventSubscriber\MyEventSubscriber'
+    arguments: ['@logger.factory']
+    tags:
+      - { name: 'event_subscriber' }

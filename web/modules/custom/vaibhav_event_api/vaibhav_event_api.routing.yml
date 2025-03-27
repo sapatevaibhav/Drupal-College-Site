@@ -1,0 +1,7 @@
+vaibhav_event_api.test_event:
+  path: '/test'
+  defaults:
+    _controller: '\Drupal\vaibhav_event_api\Controller\EventTestController::triggerEvent'
+    _title: 'Test Event Dispatch'
+  requirements:
+    _permission: 'access content'

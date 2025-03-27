@@ -1,0 +1,70 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the Vaibhav Event API module.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function vaibhav_event_api_schema() {
+  $schema = [];
+
+  $schema['profile'] = [
+    'description' => 'Stores profile data.',
+    'fields' => [
+      'profile_id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique profile ID.',
+      ],
+      'revision_id' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => FALSE,
+        'description' => 'The current revision ID.',
+      ],
+      'uid' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'The {users}.uid that owns this profile.',
+      ],
+      'name' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Profile name.',
+      ],
+      'created' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'Timestamp when the profile was created.',
+      ],
+      'changed' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'Timestamp when the profile was last updated.',
+      ],
+    ],
+    'primary key' => ['profile_id'],
+    'indexes' => [
+      'uid' => ['uid'],
+      'created' => ['created'],
+      'changed' => ['changed'],
+    ],
+    'foreign keys' => [
+      'profile_author' => [
+        'table' => 'users',
+        'columns' => ['uid' => 'uid'],
+      ],
+    ],
+  ];
+
+  return $schema;
+}

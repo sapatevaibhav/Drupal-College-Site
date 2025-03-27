@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * @file
+ * Contains vaibhav_event_api.module.
+ */
+
+/**
+ * Implements hook_help().
+ */
+function vaibhav_event_api_help($route_name, $route_match) {
+  switch ($route_name) {
+    case 'help.page.vaibhav_event_api':
+      return '<p>This module provides a custom event system in Drupal.</p>';
+  }
+}
