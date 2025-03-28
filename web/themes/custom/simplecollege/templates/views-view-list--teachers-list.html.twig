@@ -1,0 +1,26 @@
+{%
+  set classes = [
+    'teachers-list',
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+  {% if title %}
+    <h3>{{ title }}</h3>
+  {% endif %}
+
+  {% if list.type == 'ol' %}
+    <ol class="divide-y divide-gray-200">
+  {% else %}
+    <ul class="divide-y divide-gray-200">
+  {% endif %}
+    {% for row in rows %}
+      <li{{ row.attributes.addClass('p-4 even:hover:bg-gray-100 odd:hover:bg-gray-200 flex justify-between items-center odd:bg-white even:bg-gray-300') }}>
+        {{ row.content }}
+      </li>
+    {% endfor %}
+  {% if list.type == 'ol' %}
+    </ol>
+  {% else %}
+    </ul>
+  {% endif %}
+</div>
