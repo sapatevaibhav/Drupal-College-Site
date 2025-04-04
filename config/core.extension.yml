@@ -17,6 +17,7 @@ module:
   config: 0
   config_split: 0
   config_translation: 0
+  consumers: 0
   contact: 0
   content_moderation: 0
   contextual: 0
@@ -28,7 +29,6 @@ module:
   editor: 0
   entity: 0
   entity_reference_revisions: 0
-  event_webform_handler: 0
   field: 0
   field_ui: 0
   file: 0
@@ -36,7 +36,6 @@ module:
   help: 0
   history: 0
   image: 0
-  inline_entity_form: 0
   jsonapi: 0
   language: 0
   layout_builder: 0
@@ -49,6 +48,7 @@ module:
   menu_ui: 0
   mysql: 0
   node: 0
+  oauth2_server: 0
   options: 0
   page_cache: 0
   path: 0
@@ -60,6 +60,8 @@ module:
   search_api_db_defaults: 0
   serialization: 0
   shortcut: 0
+  simple_oauth: 0
+  simple_oauth_static_scope: 0
   system: 0
   taxonomy: 0
   text: 0
@@ -71,16 +73,10 @@ module:
   typed_data: 0
   update: 0
   user: 0
-  vaibhav_config_entity: 0
-  vaibhav_entity_api: 0
-  vaibhav_field_api: 0
   vaibhav_form_api: 0
   vaibhav_render_api: 0
-  vaibhav_state_api: 0
   views_ui: 0
   webform: 0
-  webform_access: 0
-  webform_node: 0
   webform_ui: 0
   workflows: 0
   pathauto: 1

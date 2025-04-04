@@ -1,0 +1,22 @@
+uuid: 1a41800b-bbfa-4b09-9975-c1537bccb660
+langcode: en
+status: true
+dependencies: {  }
+id: admin
+name: admin
+description: 'Custom scope'
+grant_types:
+  authorization_code:
+    status: false
+    description: ''
+  refresh_token:
+    status: false
+    description: ''
+  client_credentials:
+    status: true
+    description: ''
+umbrella: false
+parent: _none
+granularity_id: role
+granularity_configuration:
+  role: authenticated

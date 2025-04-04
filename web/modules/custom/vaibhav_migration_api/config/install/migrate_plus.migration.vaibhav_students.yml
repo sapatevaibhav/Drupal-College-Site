@@ -1,6 +1,6 @@
 id: vaibhav_students
 label: 'Import Students from CSV'
-migration_group: vaibhav_migrations
+migration_group: vaibhav
 source:
   plugin: csv
   path: modules/custom/vaibhav_migration_api/migrations/students.csv
@@ -18,11 +18,10 @@ process:
     plugin: default_value
     default_value: 1
   pass:
-    plugin: default_value
-    default_value: pass
+    plugin: hash_password
+    source: password
 destination:
   plugin: entity:user
-  default_bundle: student
 dependencies:
   enforced:
     module:

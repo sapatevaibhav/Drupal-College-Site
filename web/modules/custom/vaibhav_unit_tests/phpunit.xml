@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="tests/bootstrap.php">
+  <testsuites>
+    <testsuite name="unit">
+      <directory>tests/src/Unit</directory>
+      <exclude>
+        <file>TemperatureConverterDirectTest.php</file>
+      </exclude>
+    </testsuite>
+  </testsuites>
+</phpunit>

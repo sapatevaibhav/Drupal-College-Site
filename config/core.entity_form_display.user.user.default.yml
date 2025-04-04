@@ -38,11 +38,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  translation:
-    weight: 10
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   langcode: true
   role_selection_profiles: true

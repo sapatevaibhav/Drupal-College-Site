@@ -3,14 +3,12 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.department.field_choose_date
     - field.field.node.department.field_department_description
     - field.field.node.department.field_department_name
     - field.field.node.department.field_teachers_in_department
     - node.type.department
   module:
     - path
-    - vaibhav_field_api
 id: node.department.default
 targetEntityType: node
 bundle: department
@@ -19,12 +17,6 @@ content:
   created:
     type: datetime_timestamp
     weight: 10
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_choose_date:
-    type: calendar_widget
-    weight: 124
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -95,11 +87,6 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
-  translation:
-    weight: 10
-    region: content
-    settings: {  }
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete

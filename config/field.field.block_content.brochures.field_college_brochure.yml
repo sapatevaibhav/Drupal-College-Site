@@ -6,14 +6,7 @@ dependencies:
     - block_content.type.brochures
     - field.storage.block_content.field_college_brochure
   module:
-    - content_translation
     - file
-third_party_settings:
-  content_translation:
-    translation_sync:
-      target_id: target_id
-      display: display
-      description: description
 id: block_content.brochures.field_college_brochure
 field_name: field_college_brochure
 entity_type: block_content
@@ -21,7 +14,7 @@ bundle: brochures
 label: 'College Brochure'
 description: 'Select or upload the appropriate pdf file.'
 required: true
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:

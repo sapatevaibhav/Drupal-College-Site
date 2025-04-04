@@ -312,6 +312,7 @@ $settings['hash_salt'] = '';
  * TRUE back to a FALSE!
  */
 $settings['update_free_access'] = FALSE;
+$settings['simple_oauth.settings']['grant_types']['password'] = TRUE;
 
 /**
  * Fallback to HTTP for Update Manager and for fetching security advisories.

@@ -14,7 +14,7 @@ bundle: social
 label: link
 description: ''
 required: true
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:

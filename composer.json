@@ -28,11 +28,13 @@
         "drupal/migrate_plus": "^6.0",
         "drupal/migrate_source_csv": "^3.7",
         "drupal/migrate_tools": "^6.0",
+        "drupal/oauth2_server": "^2.1",
         "drupal/paragraphs": "^1.18",
         "drupal/pathauto": "^1.13",
         "drupal/profile": "^1.11",
         "drupal/rules": "^4.0",
         "drupal/search_api": "^1.37",
+        "drupal/simple_oauth": "^6.0",
         "drupal/tmgmt": "^1.17",
         "drupal/webform": "^6.3@beta",
         "drush/drush": "^13.3"
@@ -45,11 +47,12 @@
     "config": {
         "allow-plugins": {
             "composer/installers": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
             "drupal/core-composer-scaffold": true,
             "drupal/core-project-message": true,
+            "php-http/discovery": true,
             "phpstan/extension-installer": true,
-            "dealerdirect/phpcodesniffer-composer-installer": true,
-            "php-http/discovery": true
+            "tbachert/spi": true
         },
         "sort-packages": true
     },
@@ -116,6 +119,8 @@
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
         "drupal/coder": "^8.3",
-        "drupal/webprofiler": "^11.1"
+        "drupal/core-dev": "^11.1",
+        "drupal/webprofiler": "^11.1",
+        "phpunit/phpunit": "^10.5"
     }
 }

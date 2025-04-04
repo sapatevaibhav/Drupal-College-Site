@@ -1,0 +1,37 @@
+[90m= [39m[
+    "[34mnid[39m" => [34;4mDrupal\Core\Field\BaseFieldDefinition[39;24m {#10527},
+    "[34muuid[39m" => [34;4mDrupal\Core\Field\BaseFieldDefinition[39;24m {#10520},
+    "[34mvid[39m" => [34;4mDrupal\Core\Field\BaseFieldDefinition[39;24m {#10457},
+    "[34mlangcode[39m" => [34;4mDrupal\Core\Field\BaseFieldDefinition[39;24m {#10456},
+    "[34mtype[39m" => [34;4mDrupal\Core\Field\BaseFieldDefinition[39;24m {#10531},
+    "[34mrevision_timestamp[39m" => [34;4mDrupal\Core\Field\BaseFieldDefinition[39;24m {#10504},
+    "[34mrevision_uid[39m" => [34;4mDrupal\Core\Field\BaseFieldDefinition[39;24m {#10513},
+    "[34mrevision_log[39m" => [34;4mDrupal\Core\Field\BaseFieldDefinition[39;24m {#10509},
+    "[34mstatus[39m" => [34;4mDrupal\Core\Field\BaseFieldDefinition[39;24m {#10505},
+    "[34muid[39m" => [34;4mDrupal\Core\Field\BaseFieldDefinition[39;24m {#10537},
+    "[34mtitle[39m" => [34;4mDrupal\Core\Field\BaseFieldDefinition[39;24m {#10541},
+    "[34mcreated[39m" => [34;4mDrupal\Core\Field\BaseFieldDefinition[39;24m {#10544},
+    "[34mchanged[39m" => [34;4mDrupal\Core\Field\BaseFieldDefinition[39;24m {#10548},
+    "[34mpromote[39m" => [34;4mDrupal\Core\Field\BaseFieldDefinition[39;24m {#10552},
+    "[34msticky[39m" => [34;4mDrupal\Core\Field\BaseFieldDefinition[39;24m {#10557},
+    "[34mdefault_langcode[39m" => [34;4mDrupal\Core\Field\BaseFieldDefinition[39;24m {#10562},
+    "[34mrevision_default[39m" => [34;4mDrupal\Core\Field\BaseFieldDefinition[39;24m {#10568},
+    "[34mrevision_translation_affected[39m" => [34;4mDrupal\Core\Field\BaseFieldDefinition[39;24m {#10574},
+    "[34mpath[39m" => [34;4mDrupal\Core\Field\BaseFieldDefinition[39;24m {#10580},
+    "[34mmenu_link[39m" => [34;4mDrupal\Core\Field\BaseFieldDefinition[39;24m {#10583},
+    "[34mcontent_translation_source[39m" => [34;4mDrupal\Core\Field\BaseFieldDefinition[39;24m {#10587},
+    "[34mcontent_translation_outdated[39m" => [34;4mDrupal\Core\Field\BaseFieldDefinition[39;24m {#10591},
+    "[34mbody[39m" => [34;4mDrupal\field\Entity\FieldConfig[39;24m {#10597
+      +[1moriginal[22m: [36m? Drupal\field\Entity\FieldConfig[39m,
+    },
+    "[34mcomment[39m" => [34;4mDrupal\field\Entity\FieldConfig[39;24m {#10598
+      +[1moriginal[22m: [36m? Drupal\field\Entity\FieldConfig[39m,
+    },
+    "[34mfield_image[39m" => [34;4mDrupal\field\Entity\FieldConfig[39;24m {#10599
+      +[1moriginal[22m: [36m? Drupal\field\Entity\FieldConfig[39m,
+    },
+    "[34mfield_tags[39m" => [34;4mDrupal\field\Entity\FieldConfig[39;24m {#10600
+      +[1moriginal[22m: [36m? Drupal\field\Entity\FieldConfig[39m,
+    },
+  ]
+
