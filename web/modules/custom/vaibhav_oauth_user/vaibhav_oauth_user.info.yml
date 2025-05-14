@@ -1,0 +1,5 @@
+name: 'Vaibhav Oauth USer'
+type: module
+description: 'Support module.'
+core_version_requirement: ^11
+package: Vaibhav

@@ -16,6 +16,7 @@
     ],
     "require": {
         "composer/installers": "^2.3",
+        "cweagans/composer-patches": "^1.7",
         "drupal/admin_toolbar": "^3.5",
         "drupal/better_exposed_filters": "^7.0",
         "drupal/block_class": "^4.0",
@@ -24,14 +25,18 @@
         "drupal/core-project-message": "^11.1",
         "drupal/core-recommended": "^11.1",
         "drupal/devel": "^5.3",
+        "drupal/facets": "^3.0",
         "drupal/inline_entity_form": "^3.0@RC",
+        "drupal/jsonapi_views": "^1.1",
         "drupal/migrate_plus": "^6.0",
         "drupal/migrate_source_csv": "^3.7",
         "drupal/migrate_tools": "^6.0",
+        "drupal/next": "^2.0",
         "drupal/oauth2_server": "^2.1",
         "drupal/paragraphs": "^1.18",
         "drupal/pathauto": "^1.13",
         "drupal/profile": "^1.11",
+        "drupal/restui": "^1.22",
         "drupal/rules": "^4.0",
         "drupal/search_api": "^1.37",
         "drupal/simple_oauth": "^6.0",
@@ -47,6 +52,7 @@
     "config": {
         "allow-plugins": {
             "composer/installers": true,
+            "cweagans/composer-patches": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
             "drupal/core-composer-scaffold": true,
             "drupal/core-project-message": true,
@@ -57,6 +63,11 @@
         "sort-packages": true
     },
     "extra": {
+        "patches": {
+            "drupal/decoupled_router": {
+                "Unable to resolve path on node in other language than default": "https://www.drupal.org/files/issues/2024-08-05/decouple_router-3111456-resolve-language-issue-63--get-translation-re-rolled-and-good-redirect.patch"
+            }
+        },
         "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"

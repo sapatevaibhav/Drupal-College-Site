@@ -1,0 +1,7 @@
+vaibhav_oauth_user.user_info:
+  path: '/oauth/me'
+  defaults:
+    _controller: '\Drupal\vaibhav_oauth_user\Controller\UserInfoController::me'
+    _format: 'json'
+  requirements:
+    _access: 'TRUE'
